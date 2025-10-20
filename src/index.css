@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #000000;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  background: #000000;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+main {
+  display: hidden;
+}
+
+.hank {
+  font-family: "Hanken Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.play {
+  font-family: "Playfair Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@layer components {
+  .card-cyan {
+    @apply border border-cyan-400/30 bg-gradient-to-br from-cyan-500/20 to-transparent;
+  }
+}
+
+/* Glass effect */
+.glass {
+  background-color: black;
+  /* backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); */
+}
+
+.glass:hover {
+  border: 1px solid cyan;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.4), 0 0 20px rgba(34, 211, 238, 0.2);
+  /* transform: scale(1.02); */
+  transition: all 0.25s ease;
+  z-index: 1;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  border-radius: inherit;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Add to your global CSS */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-slower {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-slower {
+  animation: spin-slower 12s linear infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

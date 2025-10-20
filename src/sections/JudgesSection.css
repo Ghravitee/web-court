@@ -1,0 +1,143 @@
+/* JudgesSection.css */
+@import "swiper/css/navigation";
+@import "swiper/css/scrollbar";
+@import "swiper/css";
+@import "swiper/css/effect-coverflow";
+
+.judges-swiper {
+  padding: 20px 80px 64px 80px !important;
+}
+
+.judges-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #06b6d4, #3b82f6);
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+  border: 1px solid rgba(34, 211, 238, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.judges-nav-btn:hover:not(:disabled) {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.5);
+}
+
+.judges-nav-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(1);
+}
+
+.judges-nav-prev {
+  left: 0;
+}
+
+.judges-nav-next {
+  right: 0;
+}
+
+.judge-card {
+  padding: 2rem;
+  border-radius: 1.5rem;
+  border: 2px solid;
+  backdrop-filter: blur(8px);
+  transition: all 0.5s ease;
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.judge-card-active {
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.15),
+    rgba(59, 130, 246, 0.15)
+  );
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.judge-card-inactive {
+  background: linear-gradient(
+    135deg,
+    rgba(17, 24, 39, 0.6),
+    rgba(31, 41, 55, 0.6)
+  );
+  border-color: rgba(75, 85, 99, 0.3);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.judge-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.125rem;
+  transition: all 0.5s ease;
+}
+
+.judge-avatar-active {
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  color: white;
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
+}
+
+.judge-avatar-inactive {
+  background: #374151;
+  color: #d1d5db;
+}
+
+.pagination-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4b5563;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.pagination-dot:hover {
+  background: #6b7280;
+}
+
+.swiper-pagination-bullet-active {
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.swiper-slide {
+  transition: all 0.5s ease;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .judges-swiper {
+    padding: 20px 60px 64px 60px !important;
+  }
+
+  .judges-nav-btn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .judges-swiper {
+    padding: 20px 40px 64px 40px !important;
+  }
+}
