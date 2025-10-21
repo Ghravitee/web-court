@@ -359,7 +359,7 @@ const Tokenomics = () => {
 
   return (
     <section id="tokenomics" className="relative pt-10 px-6 text-white">
-      <div className="absolute inset-0 bg-cyan-500/10 blur-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/20 blur-3xl"></div>
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
@@ -390,7 +390,7 @@ const Tokenomics = () => {
               onClick={() => setActiveSection(tab)}
               className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
                 activeSection === tab
-                  ? "bg-cyan-500/15 text-white shadow-lg shadow-cyan-500/10"
+                  ? "bg-cyan-500/40 text-white shadow-lg shadow-cyan-500/10"
                   : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/50"
               }`}
             >

@@ -57,7 +57,7 @@ const Roadmap = () => {
       className="py-20 px-6 text-white overflow-hidden relative"
       ref={sectionRef}
     >
-      <div className="absolute inset-0 bg-cyan-500/10 blur-3xl"></div>
+      <div className="absolute inset-0 bg-cyan-600/10 blur-3xl"></div>
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

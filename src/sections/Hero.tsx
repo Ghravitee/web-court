@@ -3,9 +3,9 @@ import scale from "../assets/scale.webp";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-16 sm:pt-20">
-      <div className="absolute block size-[20rem] rounded-full bg-cyan-500/20 blur-3xl lg:top-28 lg:right-20 lg:size-[30rem]"></div>
-      <div className="absolute -top-20 -left-6 block rounded-full bg-cyan-500/20 blur-3xl lg:size-[25rem]"></div>
-      <div className="absolute inset-0 bg-cyan-500/10 blur-3xl"></div>
+      {/* <div className="absolute block size-[20rem] rounded-full bg-cyan-500/20 blur-3xl lg:top-28 lg:right-20 lg:size-[30rem]"></div>
+      <div className="absolute -top-20 -left-6 block rounded-full bg-cyan-500/20 blur-3xl lg:size-[25rem]"></div> */}
+      <div className="absolute inset-0 bg-cyan-600/12 blur-3xl"></div>
       {/* Hero Content */}
       <div className="grid lg:grid-cols-2 max-w-[1200px] mx-auto w-full">
         <div className="relative z-10 text-white mt-12 flex flex-col gap-y-3 sm:gap-y-4">

@@ -46,7 +46,7 @@ const JudgesSection = () => {
         <div className="absolute block size-[20rem] rounded-full bg-cyan-500/20 blur-3xl lg:top-28 lg:right-20 lg:size-[30rem]" />
         <div className="absolute top-20 -left-6 block rounded-full bg-cyan-500/20 blur-3xl lg:size-[25rem]" />
       </div> */}
-      <div className="absolute inset-0 bg-cyan-500/10 blur-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/12 via-cyan-500/8 to-transparent blur-3xl"></div>
 
       <div className="max-w-7xl mx-auto">
         {/* ===== Header Section ===== */}

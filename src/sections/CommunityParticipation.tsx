@@ -12,8 +12,7 @@ const CommunityParticipation = () => {
       className="relative py-20 px-6 text-white overflow-hidden"
       ref={sectionRef}
     >
-      {/* <div className="absolute inset-0 -z-[50] bg-cyan-600/10 blur-3xl"></div> */}
-      <div className="absolute inset-0 bg-cyan-500/10 blur-3xl"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/12 via-cyan-500/8 to-transparent blur-3xl"></div>
 
       <div className="relative max-w-6xl mx-auto">
         {/* Header */}
