@@ -1,6 +1,4 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import type { Variants } from "framer-motion";
 import { Vote } from "lucide-react";
 import { MdOutlineKey } from "react-icons/md";
 import { TbTax } from "react-icons/tb";
@@ -8,52 +6,6 @@ import { MdOutlineRecycling } from "react-icons/md";
 
 const TokenUtility = () => {
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, {
-    once: true,
-    amount: 0.2,
-  });
-
-  // Reusable animation variants
-  const containerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const itemVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 30,
-      scale: 0.95,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
-
-  const headerVariants: Variants = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 15,
-      },
-    },
-  };
 
   const utilities = [
     {
@@ -88,87 +40,126 @@ const TokenUtility = () => {
   ];
 
   return (
-    <section
-      id="law"
-      className="py-20 px-6 bg-[#030008] text-white"
-      ref={sectionRef}
-    >
+    <section id="law" className="py-20 px-6 text-white" ref={sectionRef}>
       <div className="max-w-6xl mx-auto">
-        {/* Animated Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-          variants={containerVariants}
-        >
-          <motion.div
+        {/* Header */}
+        <div className="text-center mb-16">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="100"
             className="inline-flex items-center justify-center mb-4"
-            variants={headerVariants}
           >
             <h2 className="text-3xl md:text-[3rem] font-bold text-cyan-700">
               $LAW <span className="play text-white">Token Utility</span>
             </h2>
-          </motion.div>
-          <motion.p
+          </div>
+          <p
+            data-aos="fade-up"
+            data-aos-delay="200"
             className="text-xl text-white/80 max-w-2xl mx-auto"
-            variants={headerVariants}
-            transition={{ delay: 0.1 }}
           >
-            The $LAW token fuels governance, participation, and rewards across
-            DexCourt. Holding $LAW gives users influence and access within the
-            ecosystem.
-          </motion.p>
-        </motion.div>
+            The <span className="text-cyan-700 font-bold">$LAW </span>token
+            fuels governance, participation, and rewards across DexCourt.
+            Holding $LAW gives users influence and access within the ecosystem.
+          </p>
+        </div>
 
-        {/* Animated Utilities Grid */}
-        <motion.div
-          className="grid md:grid-cols-2 gap-8"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          {utilities.map((utility, index) => (
-            <motion.div
-              key={index}
-              className="p-8 rounded-2xl card-cyan transition-all duration-300"
-              variants={itemVariants}
-              whileHover={{
-                y: -5,
-                scale: 1.02,
-                transition: { type: "spring", stiffness: 300 },
-              }}
-            >
-              <div className="flex flex-col md:flex-row space-x-4">
-                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-2xl">
-                  {utility.icon}
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center mb-2">
-                    <h3 className="text-xl font-semibold text-cyan-400">
-                      {utility.title}
-                    </h3>
-                  </div>
-                  <p className="text-gray-300 mb-3">{utility.description}</p>
-
-                  {/* Features list for access card */}
-                  {utility.features && (
-                    <ul className="space-y-2">
-                      {utility.features.map((feature, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-center text-gray-300"
-                        >
-                          <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+        {/* Utilities Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Voting Rights */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="p-8 rounded-2xl card-cyan glass transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+          >
+            <div className="flex flex-col md:flex-row space-x-4">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-2xl">
+                {utilities[0].icon}
               </div>
-            </motion.div>
-          ))}
-        </motion.div>
+              <div className="flex-1">
+                <div className="flex items-center mb-2">
+                  <h3 className="text-xl font-semibold text-cyan-400">
+                    {utilities[0].title}
+                  </h3>
+                </div>
+                <p className="text-gray-300 mb-3">{utilities[0].description}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Revenue Rewards */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="p-8 rounded-2xl card-cyan glass transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+          >
+            <div className="flex flex-col md:flex-row space-x-4">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-2xl">
+                {utilities[1].icon}
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center mb-2">
+                  <h3 className="text-xl font-semibold text-cyan-400">
+                    {utilities[1].title}
+                  </h3>
+                </div>
+                <p className="text-gray-300 mb-3">{utilities[1].description}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Token Tax Redistribution */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="500"
+            className="p-8 rounded-2xl card-cyan glass transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+          >
+            <div className="flex flex-col md:flex-row space-x-4">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-2xl">
+                {utilities[2].icon}
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center mb-2">
+                  <h3 className="text-xl font-semibold text-cyan-400">
+                    {utilities[2].title}
+                  </h3>
+                </div>
+                <p className="text-gray-300 mb-3">{utilities[2].description}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Access to Platform Features */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="600"
+            className="p-8 rounded-2xl card-cyan glass transition-all duration-300 hover:-translate-y-1 hover:scale-105"
+          >
+            <div className="flex flex-col md:flex-row space-x-4">
+              <div className="flex-shrink-0 w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-2xl">
+                {utilities[3].icon}
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center mb-2">
+                  <h3 className="text-xl font-semibold text-cyan-400">
+                    {utilities[3].title}
+                  </h3>
+                </div>
+                <p className="text-gray-300 mb-3">{utilities[3].description}</p>
+                {utilities[3].features && (
+                  <ul className="space-y-2">
+                    {utilities[3].features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-cyan-400 rounded-full mr-3"></div>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import logo from "../assets/react.svg";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +24,7 @@ const Navbar = () => {
     { label: "Judges", href: "#judges" },
     { label: "Community", href: "#community" },
     { label: "Use Cases", href: "#use-cases" },
-    { label: "$Law", href: "#law" },
+    { label: "$LAW", href: "#law" },
     { label: "Tokenomics", href: "#tokenomics" },
     { label: "Revenue", href: "#revenue" },
     { label: "Roadmap", href: "#roadmap" },
@@ -35,16 +34,16 @@ const Navbar = () => {
     <>
       <header
         className={`py-4 px-6 fixed w-full top-0 left-0 z-50 transition-all duration-300 backdrop-blur-[20px] ${
-          navBg ? "bg-Dark-Purple" : "bg-[#ffffff0d]"
+          navBg ? "bg-Dark-Purple" : "bg-transparent"
         }`}
       >
         <nav className="flex justify-between items-center max-w-[1200px] mx-auto">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
-            <img src={logo} alt="Safu Logo" loading="lazy" />
-            <p className="text-2xl font-bold dark:text-white text-black hidden lg:block">
-              DexCourt
-            </p>
+          <a href="/" className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+              <span className="text-white font-bold text-lg">D</span>
+            </div>
+            <span className="text-white font-bold text-2xl">DexCourt</span>
           </a>
 
           {/* Desktop Nav */}
@@ -70,7 +69,7 @@ const Navbar = () => {
             href="#"
             target="_blank"
             rel="noopener noreferrer"
-            className="ml-auto hidden text-[1rem] font-bold px-[24px] py-[13px] xl:flex items-center justify-center text-white cursor-pointer gap-3 bg-[#0C8CE0] rounded-full"
+            className="hidden w-[12rem] text-center text-sm sm:text-[1rem] font-bold px-6 rounded-2xl sm:px-[24px] py-3 sm:py-[13px] lg:flex items-center justify-center neon-hover cursor-pointer gap-3 transition-colors relative border border-cyan-400/40 bg-cyan-500/15 text-cyan-200 shadow-[0_0_24px_rgba(34,211,238,0.35)] hover:shadow-[0_0_34px_rgba(34,211,238,0.6)] hover:bg-cyan-500/20"
           >
             Launch App
           </a>
@@ -127,8 +126,7 @@ const Navbar = () => {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 w-fit flex items-center gap-2 bg-[#0C8CE0] text-white px-5 py-2 rounded-full text-sm font-semibold"
-                onClick={() => setIsOpen(false)}
+                className="lg:hidden w-[12rem] text-center text-sm sm:text-[1rem] font-bold px-6 rounded-2xl sm:px-[24px] py-3 sm:py-[13px] flex items-center justify-center neon-hover cursor-pointer gap-3 transition-colors relative border border-cyan-400/40 bg-cyan-500/15 text-cyan-200 shadow-[0_0_24px_rgba(34,211,238,0.35)] hover:shadow-[0_0_34px_rgba(34,211,238,0.6)] hover:bg-cyan-500/20"
               >
                 Launch App
               </a>

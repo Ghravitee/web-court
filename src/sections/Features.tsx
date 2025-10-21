@@ -1,6 +1,4 @@
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import type { Variants } from "framer-motion";
 import { Scale, FileText, Wallet, Vote, Users } from "lucide-react";
 
 const features = [
@@ -41,257 +39,109 @@ const features = [
   },
 ];
 
-// Animation variants with proper TypeScript types
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.3,
-    },
-  },
-};
-
-const itemVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 60,
-    scale: 0.9,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
-const titleVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 15,
-    },
-  },
-};
-
-const iconVariants: Variants = {
-  hidden: { scale: 0, rotate: -180 },
-  visible: {
-    scale: 1,
-    rotate: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-    },
-  },
-};
-
-const descriptionVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
-
 const BentoFeatures = () => {
   const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-    amount: 0.3,
-  });
 
   return (
     <section
       id="features"
-      className="relative py-20 bg-black text-white overflow-hidden"
       ref={ref}
+      className="relative py-20 bg-black text-white overflow-hidden"
     >
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Animated Title */}
-        <motion.h2
-          className="lg:text-[2.7rem] text-[2.5rem] font-bold text-center mb-12 hank"
-          variants={titleVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
-        >
-          Core <span className="play text-cyan-700">Features</span>
-        </motion.h2>
+      {/* 🔮 Background Glows */}
+      {/* <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute block size-[20rem] rounded-full bg-cyan-500/20 blur-3xl lg:top-28 lg:right-20 lg:size-[30rem]" />
+        <div className="absolute -top-20 -left-6 block rounded-full bg-cyan-500/20 blur-3xl lg:size-[25rem]" />
+      </div> */}
+      <div className="absolute inset-0 bg-cyan-500/10 blur-3xl"></div>
 
-        {/* 🧱 Animated Bento Grid Layout */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate={isInView ? "visible" : "hidden"}
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Title */}
+        <h2
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="lg:text-[2.7rem] text-[2.5rem] font-bold text-center mb-12 hank"
         >
-          {/* Smart Agreements */}
-          <motion.div
-            className="flex flex-col justify-between rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all hover:scale-[1.02] hover:shadow-cyan-500/20 cursor-pointer"
-            variants={itemVariants}
-            whileHover={{
-              y: -8,
-              transition: { type: "spring", stiffness: 300 },
-            }}
+          Core <span className="text-cyan-600 play">Features</span>
+        </h2>
+
+        {/* 🧱 Responsive 3-column Bento grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[minmax(220px,_1fr)]">
+          {/* 1️⃣ Smart Agreements */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="flex flex-col justify-between rounded-[2rem] p-6 shadow-lg card-cyan glass hover:scale-[1.02] hover:shadow-cyan-500/20 transition-all duration-300"
           >
-            <motion.div
-              variants={iconVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.4 }}
-            >
-              {features[0].icon}
-            </motion.div>
+            {features[0].icon}
             <h3 className="text-xl font-semibold mt-4 mb-2">
               {features[0].title}
             </h3>
-            <motion.p
-              className="text-sm text-gray-300 leading-relaxed"
-              variants={descriptionVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.6 }}
-            >
+            <p className="text-sm text-gray-300 leading-relaxed">
               {features[0].description}
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
-          {/* Decentralized Escrow */}
-          <motion.div
-            className="flex flex-col justify-between rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all hover:scale-[1.02] hover:shadow-cyan-500/20 cursor-pointer"
-            variants={itemVariants}
-            whileHover={{
-              y: -8,
-              transition: { type: "spring", stiffness: 300 },
-            }}
+          {/* 2️⃣ Decentralized Escrow (2-row span) */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="flex flex-col justify-center rounded-[2rem] p-8 shadow-lg card-cyan glass hover:scale-[1.02] hover:shadow-cyan-500/20 transition-all duration-300 lg:row-span-2"
           >
-            <motion.div
-              variants={iconVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.5 }}
-            >
-              {features[1].icon}
-            </motion.div>
-            <h3 className="text-xl font-semibold mt-4 mb-2">
+            {features[1].icon}
+            <h3 className="text-[2rem] font-semibold mt-4 mb-3">
               {features[1].title}
             </h3>
-            <motion.p
-              className="text-sm text-gray-300 leading-relaxed"
-              variants={descriptionVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.7 }}
-            >
+            <p className="text-[1.1rem] text-gray-300 leading-relaxed">
               {features[1].description}
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
-          {/* Dispute Resolution */}
-          <motion.div
-            className="flex flex-col justify-between rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all hover:scale-[1.02] hover:shadow-cyan-500/20 cursor-pointer"
-            variants={itemVariants}
-            whileHover={{
-              y: -8,
-              transition: { type: "spring", stiffness: 300 },
-            }}
+          {/* 3️⃣ Dispute Resolution */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="400"
+            className="flex flex-col justify-between rounded-[2rem] p-6 shadow-lg card-cyan glass hover:scale-[1.02] hover:shadow-cyan-500/20 transition-all duration-300"
           >
-            <motion.div
-              variants={iconVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.6 }}
-            >
-              {features[2].icon}
-            </motion.div>
+            {features[2].icon}
             <h3 className="text-xl font-semibold mt-4 mb-2">
               {features[2].title}
             </h3>
-            <motion.p
-              className="text-sm text-gray-300 leading-relaxed"
-              variants={descriptionVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.8 }}
-            >
+            <p className="text-sm text-gray-300 leading-relaxed">
               {features[2].description}
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
-          {/* On-Chain Voting */}
-          <motion.div
-            className="flex flex-col justify-between rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all hover:scale-[1.02] hover:shadow-cyan-500/20 cursor-pointer"
-            variants={itemVariants}
-            whileHover={{
-              y: -8,
-              transition: { type: "spring", stiffness: 300 },
-            }}
+          {/* 4️⃣ On-Chain Voting */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="500"
+            className="flex flex-col justify-between rounded-[2rem] p-6 shadow-lg card-cyan glass hover:scale-[1.02] hover:shadow-cyan-500/20 transition-all duration-300"
           >
-            <motion.div
-              variants={iconVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.7 }}
-            >
-              {features[3].icon}
-            </motion.div>
+            {features[3].icon}
             <h3 className="text-xl font-semibold mt-4 mb-2">
               {features[3].title}
             </h3>
-            <motion.p
-              className="text-sm text-gray-300 leading-relaxed"
-              variants={descriptionVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.9 }}
-            >
+            <p className="text-sm text-gray-300 leading-relaxed">
               {features[3].description}
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
 
-          {/* Reputation System */}
-          <motion.div
-            className="flex flex-col justify-between rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all hover:scale-[1.02] hover:shadow-cyan-500/20 cursor-pointer"
-            variants={itemVariants}
-            whileHover={{
-              y: -8,
-              transition: { type: "spring", stiffness: 300 },
-            }}
+          {/* 5️⃣ Reputation System */}
+          <div
+            data-aos="fade-up"
+            data-aos-delay="600"
+            className="flex flex-col justify-between rounded-[2rem] p-6 shadow-lg card-cyan glass hover:scale-[1.02] hover:shadow-cyan-500/20 transition-all duration-300"
           >
-            <motion.div
-              variants={iconVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 0.8 }}
-            >
-              {features[4].icon}
-            </motion.div>
+            {features[4].icon}
             <h3 className="text-xl font-semibold mt-4 mb-2">
               {features[4].title}
             </h3>
-            <motion.p
-              className="text-sm text-gray-300 leading-relaxed"
-              variants={descriptionVariants}
-              initial="hidden"
-              animate={isInView ? "visible" : "hidden"}
-              transition={{ delay: 1.0 }}
-            >
+            <p className="text-sm text-gray-300 leading-relaxed">
               {features[4].description}
-            </motion.p>
-          </motion.div>
-        </motion.div>
+            </p>
+          </div>
+        </div>
       </div>
     </section>
   );

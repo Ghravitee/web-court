@@ -3,6 +3,9 @@ import scale from "../assets/scale.webp";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 pt-16 sm:pt-20">
+      <div className="absolute block size-[20rem] rounded-full bg-cyan-500/20 blur-3xl lg:top-28 lg:right-20 lg:size-[30rem]"></div>
+      <div className="absolute -top-20 -left-6 block rounded-full bg-cyan-500/20 blur-3xl lg:size-[25rem]"></div>
+      <div className="absolute inset-0 bg-cyan-500/10 blur-3xl"></div>
       {/* Hero Content */}
       <div className="grid lg:grid-cols-2 max-w-[1200px] mx-auto w-full">
         <div className="relative z-10 text-white mt-12 flex flex-col gap-y-3 sm:gap-y-4">
@@ -27,13 +30,13 @@ const Hero = () => {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-[12rem] text-center text-sm sm:text-[1rem] font-bold px-6 sm:px-[24px] py-3 sm:py-[13px] flex items-center justify-center text-white cursor-pointer gap-3 bg-[#0C8CE0] rounded-full hover:bg-[#0a7bc8] transition-colors"
+              className="w-[12rem] text-center text-sm sm:text-[1rem] font-bold px-6 rounded-2xl sm:px-[24px] py-3 sm:py-[13px] flex items-center justify-center neon-hover cursor-pointer gap-3 transition-colors relative border border-cyan-400/40 bg-cyan-500/15 text-cyan-200 shadow-[0_0_24px_rgba(34,211,238,0.35)] hover:shadow-[0_0_34px_rgba(34,211,238,0.6)] hover:bg-cyan-500/20"
             >
               Launch App
             </a>
             <a
               href="#"
-              className="w-[12rem] text-center px-6 sm:px-[24px] py-3 sm:py-[13px] flex items-center justify-center text-white rounded-full border border-cyan-400 hover:bg-cyan-400/10 transition-colors"
+              className="w-[12rem] text-center px-6 sm:px-[24px] py-3 sm:py-[13px] flex items-center justify-center text-white rounded-2xl border border-cyan-400/40 hover:bg-cyan-400/10 transition-colors"
             >
               Read Whitepaper
             </a>

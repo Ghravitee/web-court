@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
-* {
+/* * {
   -webkit-tap-highlight-color: transparent;
   backface-visibility: hidden;
   transform: translateZ(0);
-}
+} */
 
 html {
   scroll-behavior: smooth;
@@ -16,7 +16,7 @@ button {
 }
 
 body {
-  background: #000000;
+  /* background: #000000; */
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
@@ -75,6 +75,15 @@ main {
   border-radius: inherit;
   pointer-events: none;
   mix-blend-mode: overlay;
+}
+
+/* Neon glow effects */
+.neon {
+  box-shadow: 0 0 0px rgba(34, 211, 238, 0), 0 0 30px rgba(34, 211, 238, 0.25);
+}
+
+.neon-hover:hover {
+  box-shadow: 0 0 0px rgba(34, 211, 238, 0), 0 0 36px rgba(34, 211, 238, 0.4);
 }
 
 /* Add to your global CSS */
