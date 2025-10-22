@@ -21,12 +21,11 @@ const Navbar = () => {
 
   const menuItems = [
     { label: "Features", href: "#features" },
-    { label: "Judges", href: "#judges" },
-    { label: "Community", href: "#community" },
+
     { label: "Use Cases", href: "#use-cases" },
-    { label: "$LAW", href: "#law" },
+    { label: "Token Utility", href: "#law" },
     { label: "Tokenomics", href: "#tokenomics" },
-    { label: "Revenue", href: "#revenue" },
+    { label: "Revenue Model", href: "#revenue" },
     { label: "Roadmap", href: "#roadmap" },
   ];
 
@@ -40,10 +39,9 @@ const Navbar = () => {
         <nav className="flex justify-between items-center max-w-[1200px] mx-auto">
           {/* Logo */}
           <a href="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-lg bg-cyan-700 flex items-center justify-center">
               <span className="text-white font-bold text-lg">D</span>
             </div>
-            <span className="text-white font-bold text-2xl">DexCourt</span>
           </a>
 
           {/* Desktop Nav */}
@@ -53,9 +51,7 @@ const Navbar = () => {
                 <a
                   href={href}
                   className={`transition ${
-                    activeLink === href
-                      ? "text-[#0C8CE0]"
-                      : "dark:text-white text-black"
+                    activeLink === href ? "text-cyan-700" : "text-white"
                   } hover:text-Purple`}
                   onClick={() => handleSetActive(href)}
                 >
