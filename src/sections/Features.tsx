@@ -7,35 +7,35 @@ const features = [
     icon: <FileText className="w-8 h-8 text-cyan-400" />,
     title: "Smart Agreements",
     description:
-      "Create secure on-chain agreements without lawyers or middlemen. Every deal is transparent and verifiable.",
+      "Create secure on-chain agreements between individuals, teams, or projects — no lawyers or middlemen needed. Every deal is recorded with clear milestones, deadlines, and terms both parties can verify and sign digitally.",
   },
   {
     id: "escrow",
     icon: <Wallet className="w-10 h-10 text-cyan-400" />,
     title: "Decentralized Escrow",
     description:
-      "Funds are held safely in smart escrow until agreed conditions are met, ensuring fairness in every transaction.",
+      "Funds are held safely in DexCourt’s smart escrow until agreed conditions are met. Whether it’s a service, partnership, or freelance job, the escrow ensures no one gets paid — or loses funds — unfairly.",
   },
   {
     id: "dispute",
     icon: <Scale className="w-8 h-8 text-cyan-400" />,
     title: "Dispute Resolution",
     description:
-      "When conflicts arise, verified judges and the community deliver transparent, bias-free verdicts.",
+      "If things go wrong, either party can raise a dispute. Verified judges and the community review evidence, vote transparently, and deliver a fair verdict — free from bias or favoritism.",
   },
   {
     id: "voting",
     icon: <Vote className="w-8 h-8 text-cyan-400" />,
     title: "On-Chain Voting",
     description:
-      "All major decisions are powered by verifiable on-chain votes — balancing expert judgment and community input.",
+      "Every major decision — from disputes to governance — is powered by transparent, verifiable voting. Judges’ votes carry weighted influence, while $LAW holders also vote, ensuring balanced outcomes driven by both expertise and community consensus.",
   },
   {
     id: "reputation",
     icon: <Users className="w-8 h-8 text-cyan-400" />,
     title: "Reputation System",
     description:
-      "Participants earn or lose reputation based on behavior, creating a lasting trust layer across the ecosystem.",
+      "Judges, participants, and deal creators earn or lose reputation based on their conduct. This builds a lasting trust layer that guides future collaborations and strengthens accountability across the DexCourt ecosystem.",
   },
 ];
 

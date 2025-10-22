@@ -65,9 +65,11 @@ const JudgesSection = () => {
               data-aos-delay="200"
               className="text-gray-400 text-lg"
             >
-              Respected figures in Web3 — developers, influencers, founders, and
-              legal experts — ensuring every verdict is fair, transparent, and
-              credible.
+              DexCourt’s judges are respected figures in the Web3 space —
+              experienced developers, influencers, founders, and legal
+              professionals who’ve proven their integrity. They are carefully
+              vetted before being allowed to preside over disputes, ensuring
+              every verdict is credible and fair.
             </p>
           </div>
 
