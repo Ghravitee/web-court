@@ -282,7 +282,12 @@ const Tokenomics = () => {
           key={detail.label}
           data-aos="fade-up"
           data-aos-delay={index * 100}
-          className="p-6 rounded-2xl glass card-cyan transition-all duration-300"
+          className="p-6 rounded-2xl transition-all duration-300"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+            borderColor: "rgba(34, 211, 238, 0.3)",
+          }}
         >
           <div className="flex items-center mb-4">
             <h3 className="text-lg font-semibold text-cyan-400">
@@ -310,7 +315,12 @@ const Tokenomics = () => {
             key={tax.allocation}
             data-aos="fade-up"
             data-aos-delay={200 + index * 100}
-            className="p-6 rounded-2xl card-cyan glass transition-all duration-300 relative overflow-hidden"
+            className="p-6 rounded-2xl transition-all duration-300 relative overflow-hidden"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+              borderColor: "rgba(34, 211, 238, 0.3)",
+            }}
           >
             <div className="relative z-10">
               <div className="text-center mb-4">

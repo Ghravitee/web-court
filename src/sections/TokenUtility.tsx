@@ -75,7 +75,12 @@ const TokenUtility = () => {
           <div
             data-aos="fade-up"
             data-aos-delay="300"
-            className="p-8 rounded-2xl card-cyan glass transition-all duration-300"
+            className="p-8 rounded-2xl transition-all duration-300"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+              borderColor: "rgba(34, 211, 238, 0.3)",
+            }}
           >
             <div className="flex flex-col md:flex-row space-x-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-2xl">
@@ -96,7 +101,12 @@ const TokenUtility = () => {
           <div
             data-aos="fade-up"
             data-aos-delay="400"
-            className="p-8 rounded-2xl card-cyan glass transition-all duration-300 "
+            className="p-8 rounded-2xl transition-all duration-300 "
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+              borderColor: "rgba(34, 211, 238, 0.3)",
+            }}
           >
             <div className="flex flex-col md:flex-row space-x-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-2xl">
@@ -117,7 +127,12 @@ const TokenUtility = () => {
           <div
             data-aos="fade-up"
             data-aos-delay="500"
-            className="p-8 rounded-2xl card-cyan glass transition-all duration-300"
+            className="p-8 rounded-2xl transition-all duration-300"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+              borderColor: "rgba(34, 211, 238, 0.3)",
+            }}
           >
             <div className="flex flex-col md:flex-row space-x-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-2xl">
@@ -138,7 +153,12 @@ const TokenUtility = () => {
           <div
             data-aos="fade-up"
             data-aos-delay="600"
-            className="p-8 rounded-2xl card-cyan glass transition-all duration-300 "
+            className="p-8 rounded-2xl transition-all duration-300"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+              borderColor: "rgba(34, 211, 238, 0.3)",
+            }}
           >
             <div className="flex flex-col md:flex-row space-x-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-2xl">

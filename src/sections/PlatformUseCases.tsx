@@ -114,7 +114,12 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="100"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all duration-300"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+                borderColor: "rgba(34, 211, 238, 0.3)",
+              }}
             >
               {features[0].icon}
               <h3 className="text-xl font-semibold mt-4 mb-2">
@@ -149,8 +154,14 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="200"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all relative"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+                borderColor: "rgba(34, 211, 238, 0.3)",
+              }}
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               {features[1].icon}
               <h3 className="text-xl font-semibold mt-4 mb-2">
                 {features[1].title}
@@ -184,7 +195,12 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="300"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all duration-300"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+                borderColor: "rgba(34, 211, 238, 0.3)",
+              }}
             >
               {features[2].icon}
               <h3 className="text-xl font-semibold mt-4 mb-2">
@@ -219,7 +235,12 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="400"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all duration-300"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+                borderColor: "rgba(34, 211, 238, 0.3)",
+              }}
             >
               {features[3].icon}
               <h3 className="text-xl font-semibold mt-4 mb-2">
@@ -254,7 +275,12 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="500"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg glass card-cyan transition-all duration-300"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
+                borderColor: "rgba(34, 211, 238, 0.3)",
+              }}
             >
               {features[4].icon}
               <h3 className="text-xl font-semibold mt-4 mb-2">
