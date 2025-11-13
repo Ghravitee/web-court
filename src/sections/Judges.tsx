@@ -66,6 +66,20 @@ const JudgesSection = () => {
 
   const activeJudge = judges[activeIndex];
 
+  // Auto-rotate carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((current) => (current + 1) % judges.length);
+    }, 5000); // 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // Handle manual judge selection
+  const handleJudgeSelect = (index: number) => {
+    setActiveIndex(index);
+  };
+
   useEffect(() => {
     setIsTransitioning(true);
     const timer = setTimeout(() => setIsTransitioning(false), 300);
@@ -75,28 +89,35 @@ const JudgesSection = () => {
   return (
     <section
       id="judges"
-      className="relative py-24 px-6 text-white overflow-hidden bg-black"
+      className="relative py-24 px-6 text-white overflow-hidden "
     >
-      {/* Enhanced Background Effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-purple-900/10 to-transparent"></div>
-      <div className="absolute top-1/4 -left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
-
       <div className="max-w-5xl mx-auto relative z-10">
-        {/* Header Section */}
+        {/* Header Section with AOS Animations */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-3 mb-4 px-6 py-3 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+          <div
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="inline-flex items-center gap-3 mb-4 px-6 py-3 rounded-full bg-cyan-500/10 border border-cyan-500/30"
+          >
             <FaGavel className="text-cyan-400 text-lg" />
             <span className="text-cyan-400 font-semibold text-sm uppercase tracking-wider">
               Expert Panel
             </span>
           </div>
 
-          <h2 className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+          <h2
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent"
+          >
             Meet Our <span className="text-cyan-400">Judges</span>
           </h2>
 
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <p
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          >
             DexCourt's panel comprises respected Web3 pioneers—seasoned
             developers, influential thought leaders, and legal experts—carefully
             vetted to ensure every verdict is both credible and fair.
@@ -140,7 +161,7 @@ const JudgesSection = () => {
               {judges.map((judge, index) => (
                 <button
                   key={index}
-                  onClick={() => setActiveIndex(index)}
+                  onClick={() => handleJudgeSelect(index)}
                   className={`group relative p-3 rounded-2xl transition-all duration-300 ${
                     activeIndex === index
                       ? "bg-cyan-500/20 border border-cyan-400/40 shadow-[0_0_30px_#00ffff40]"
@@ -209,7 +230,7 @@ const JudgesSection = () => {
                 {judges.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => setActiveIndex(index)}
+                    onClick={() => handleJudgeSelect(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       activeIndex === index
                         ? "bg-cyan-400 scale-125"

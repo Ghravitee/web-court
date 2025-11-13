@@ -359,7 +359,7 @@ const Tokenomics = () => {
 
   return (
     <section id="tokenomics" className="relative pt-10 px-6 text-white">
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-cyan-600/20 blur-3xl"></div>
+      {/* <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-cyan-600/20 blur-3xl"></div> */}
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

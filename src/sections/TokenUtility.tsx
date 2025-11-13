@@ -45,7 +45,7 @@ const TokenUtility = () => {
       className="py-20 px-6 text-white relative"
       ref={sectionRef}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/20 blur-3xl"></div>
+      {/* <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/20 blur-3xl"></div> */}
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

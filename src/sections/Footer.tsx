@@ -39,8 +39,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className=" border-t border-gray-800/50 py-12 px-6 relative">
-      <div className="absolute inset-0 bg-cyan-600/10 blur-3xl"></div>
+    <footer className=" border-t border-gray-800/50 py-12 px-6 relative z-40">
+      {/* <div className="absolute inset-0 bg-cyan-600/10 blur-3xl"></div> */}
       <div className="max-w-6xl mx-auto">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">

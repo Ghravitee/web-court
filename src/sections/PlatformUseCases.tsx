@@ -73,7 +73,6 @@ const PlatformUseCases = () => {
       className="pt-16 px-6 text-white relative"
       ref={sectionRef}
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-cyan-600/20 blur-3xl"></div>
       <div className="max-w-4xl mx-auto">
         <div className="flex items-start gap-8">
           {/* Content */}
