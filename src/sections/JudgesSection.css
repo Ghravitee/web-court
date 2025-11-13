@@ -141,3 +141,15 @@
     padding: 20px 40px 64px 40px !important;
   }
 }
+
+.testimonial-card {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  border-color: rgba(34, 211, 238, 0.4);
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.3);
+  transform: scale(1.02);
+}
