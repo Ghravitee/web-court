@@ -108,7 +108,7 @@ const JudgesSection = () => {
           <h2
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent"
+            className="sec text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent"
           >
             Meet Our <span className="text-cyan-400">Judges</span>
           </h2>
@@ -145,10 +145,10 @@ const JudgesSection = () => {
                 </div>
               </div>
 
-              <h3 className="text-4xl font-bold text-white mb-3">
+              <h3 className="text-4xl font-bold text-white mb-3 sec">
                 {activeJudge.handle}
               </h3>
-              <p className="text-cyan-300 text-xl font-semibold mb-6">
+              <p className="text-cyan-300 text-xl font-semibold mb-6 sec">
                 {activeJudge.role}
               </p>
               <p className="text-gray-300 text-lg leading-relaxed">

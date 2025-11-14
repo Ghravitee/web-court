@@ -10,7 +10,7 @@ const features = [
       "DexCourt gives freelancers and clients peace of mind through secure agreements and escrow payments. Funds are only released when both parties confirm that milestones are met.",
     example:
       "Example: A Web3 developer agrees to build a staking dashboard for a project for 0.8 ETH. The client creates an escrow agreement on DexCourt and deposits the full amount. Once the developer delivers the dashboard and the project team confirms it works, payment is released automatically. If there's disagreement over quality or delivery, either party can raise a dispute, where DexCourt judges review the evidence and decide fairly.",
-    exampleColor: "text-cyan-300/90",
+    exampleColor: "text-cyan-500/90",
     whoBenefits:
       "Developers, designers, marketers, writers, and clients looking for transparent, secure collaborations.",
   },
@@ -22,7 +22,7 @@ const features = [
       "DexCourt doubles as a public reputation hub — helping users vet others before doing business with them. Reputation reflects honesty, reliability, and dispute history — even from offline cases.",
     example:
       "Example: A founder planning to hire a Telegram manager searches their DexCourt profile and discovers they have 3 unresolved disputes and appear in Ignored Rulings with a Trust Score of 41/100. Another candidate, verified on DexCourt, shows 12 successful contracts, no disputes, and a Trust Score of 93/100. The founder confidently hires the second candidate, avoiding a potential loss.",
-    exampleColor: "text-cyan-300/90",
+    exampleColor: "text-cyan-500/90",
     whoBenefits:
       "Anyone in Web3 — founders, traders, investors, DAOs, and freelancers — who needs to verify credibility before trusting someone.",
   },
@@ -34,7 +34,7 @@ const features = [
       "Even informal or offline agreements can be documented and protected using DexCourt's off-chain agreement feature. It serves as a verifiable record in case things go wrong — even if no payment was held in escrow.",
     example:
       "Example: Two NFT traders agree in DMs that one will create a logo and the other will send a rare NFT in exchange. After delivery, the NFT sender disappears without sending the logo. The designer raises a dispute on DexCourt, attaching screenshots and transaction proof. Although no funds were escrowed, judges rule that the trader violated the agreement and issue a public ruling. If the trader refuses to apologize or settle, their DexCourt reputation score drops and their username is listed under 'Ignored Rulings.'",
-    exampleColor: "text-cyan-300/90",
+    exampleColor: "text-cyan-500/90",
     whoBenefits:
       "Friends, traders, moderators, or anyone who frequently makes informal Web3 or personal deals.",
   },
@@ -46,7 +46,7 @@ const features = [
       "Partnerships often involve mutual promises and milestones — DexCourt's milestone-based escrow and agreement system ensures both sides stay accountable.",
     example:
       "Example: A DeFi project partners with a YouTube influencer for promotion worth 4 ETH, payable in two stages — half before the campaign and half after achieving a 10K view target. The deal is created on DexCourt, and the first 2 ETH is placed in escrow. After the influencer delivers only one low-effort video and doesn't meet the target, the project raises a dispute. Judges review the case, confirm underperformance, and rule that only 1 ETH be released. The remaining amount returns to the project.",
-    exampleColor: "text-cyan-300/90",
+    exampleColor: "text-cyan-500/90",
     whoBenefits:
       "Startups, investors, influencers, marketing teams, or any group involved in performance-based deals.",
   },
@@ -58,7 +58,7 @@ const features = [
       "DexCourt can also be used to settle real-world or hybrid disputes, such as services, investments, or physical goods deals that didn't happen digitally. While the platform can't force refunds, it can enforce accountability through reputation.",
     example:
       "Example: A community member hires a local event organizer for a crypto meetup, paying $600 in cash. The organizer cancels last minute, refuses to refund, and disappears. The victim opens a DexCourt dispute with screenshots, chat logs, and witnesses. Judges review the case, vote unanimously that the organizer acted unfairly, and issue a public call-out urging a refund or apology. The organizer ignores it, and their Trust Score drops significantly, marking them as untrustworthy across future deals and appearing in the Ignored Rulings list.",
-    exampleColor: "text-cyan-300/90",
+    exampleColor: "text-cyan-500/90",
     whoBenefits:
       "Crypto investors, small businesses, event partners, and community members handling real-world transactions or promises.",
   },
@@ -70,7 +70,7 @@ const PlatformUseCases = () => {
   return (
     <section
       id="use-cases"
-      className="pt-16 px-6 text-white relative"
+      className="pt-16 lg:px-6 text-white relative"
       ref={sectionRef}
     >
       <div className="max-w-4xl mx-auto">
@@ -83,7 +83,7 @@ const PlatformUseCases = () => {
                 <h2
                   data-aos="fade-up"
                   data-aos-delay="100"
-                  className="lg:text-[2.7rem] text-[2.5rem] font-bold mb-4 leading-[1]"
+                  className="seclg:text-[2.7rem] text-[2.5rem] font-bold mb-4 leading-[1]"
                 >
                   Platform <span className="play text-cyan-700">Usecases</span>
                 </h2>
@@ -122,7 +122,7 @@ const PlatformUseCases = () => {
               }}
             >
               {features[0].icon}
-              <h3 className="text-xl font-semibold mt-4 mb-2">
+              <h3 className="sec text-xl font-semibold mt-4 mb-2">
                 {features[0].title}
               </h3>
               <div className="text-sm text-gray-300 leading-relaxed space-y-3">

@@ -57,22 +57,21 @@ const Roadmap = () => {
       className="py-20 px-6 text-white overflow-hidden relative"
       ref={sectionRef}
     >
-      {/* <div className="absolute inset-0 bg-cyan-600/10 blur-3xl"></div> */}
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+        {/* Header - Matching Features Section Style */}
         <div className="text-center mb-16">
           <h2
             data-aos="fade-up"
-            data-aos-delay="100"
-            className="text-3xl md:text-4xl font-bold mb-4"
+            data-aos-delay="200"
+            className="sec text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent"
           >
             Roadmap
           </h2>
 
           <p
             data-aos="fade-up"
-            data-aos-delay="200"
-            className="text-xl text-gray-300 max-w-2xl mx-auto"
+            data-aos-delay="300"
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
             Our journey to revolutionize Web3 justice and dispute resolution
           </p>
@@ -108,77 +107,95 @@ const Roadmap = () => {
                   <div
                     className={`w-full h-full rounded-full transition-all duration-300 ${
                       phase.status === "current"
-                        ? "bg-cyan-400 animate-pulse"
+                        ? "bg-cyan-400 animate-pulse shadow-[0_0_20px_#00ffff]"
                         : index <= activePhase
-                        ? "bg-cyan-400"
+                        ? "bg-cyan-400 shadow-[0_0_15px_#00ffff80]"
                         : "bg-gray-600"
                     }`}
                   />
                 </div>
 
-                {/* Content Card */}
+                {/* Content Card - Web3 Style */}
                 <div
                   className={`ml-16 md:ml-0 md:w-5/12 ${
                     index % 2 === 0 ? "md:pr-12" : "md:pl-12"
                   }`}
                 >
                   <div
-                    className={`p-6 rounded-2xl border-2 backdrop-blur-sm transition-all duration-300 hover:scale-105 ${
+                    className={`web3-corner-border group relative rounded-3xl p-[2px] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 ${
                       phase.status === "current"
-                        ? "card-cyan glass"
-                        : index <= activePhase
-                        ? "card-cyan glass"
-                        : "card-cyan glass"
+                        ? "shadow-[0_0_60px_#00ffff20]"
+                        : "shadow-[0_0_40px_#00ffff10]"
                     }`}
                   >
-                    {/* Phase Header */}
-                    <div className="flex items-center mb-4">
-                      <div>
-                        <h3
-                          className={`text-xl font-bold ${
-                            phase.status === "current"
-                              ? "text-cyan-400"
-                              : "text-white"
-                          }`}
-                        >
-                          {phase.title}
-                        </h3>
-                        <span
-                          className={`text-sm play ${
-                            phase.status === "current"
-                              ? "text-cyan-300"
-                              : index <= activePhase
-                              ? "text-cyan-400/70"
-                              : "text-gray-500"
-                          }`}
-                        >
-                          {phase.status === "current"
-                            ? "In Progress"
-                            : "Upcoming"}
-                        </span>
-                      </div>
-                    </div>
-
-                    {/* Phase Items */}
-                    <ul className="space-y-3">
-                      {phase.items.map((item, itemIndex) => (
-                        <li
-                          key={itemIndex}
-                          className="flex items-start text-gray-300 text-sm leading-relaxed"
-                          data-aos="fade-right"
-                          data-aos-delay={400 + index * 100 + itemIndex * 50}
-                        >
-                          <div
-                            className={`w-2 h-2 rounded-full mt-2 mr-3 flex-shrink-0 transition-colors duration-300 ${
-                              phase.status === "current" || index <= activePhase
-                                ? "bg-cyan-400"
-                                : "bg-gray-600"
+                    <div
+                      className={`rounded-[1.4rem] h-full p-8 bg-black/40 backdrop-blur-xl transition-all duration-500 group-hover:shadow-[0_0_70px_#00eaff40] ${
+                        phase.status === "current"
+                          ? "shadow-[0_0_40px_#00eaff30]"
+                          : "shadow-[0_0_20px_#00eaff20]"
+                      }`}
+                    >
+                      {/* Phase Header */}
+                      <div className="flex items-center justify-between mb-6">
+                        <div>
+                          <h3
+                            className={`sec text-2xl font-bold ${
+                              phase.status === "current"
+                                ? "text-cyan-400"
+                                : "text-white"
                             }`}
-                          />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
+                          >
+                            {phase.title}
+                          </h3>
+                          <span
+                            className={`text-sm font-semibold ${
+                              phase.status === "current"
+                                ? "text-cyan-300"
+                                : index <= activePhase
+                                ? "text-cyan-400/70"
+                                : "text-gray-400"
+                            }`}
+                          >
+                            {phase.status === "current"
+                              ? "In Progress"
+                              : "Upcoming"}
+                          </span>
+                        </div>
+
+                        {/* Status Indicator */}
+                        <div
+                          className={`w-3 h-3 rounded-full ${
+                            phase.status === "current"
+                              ? "bg-cyan-400 animate-pulse"
+                              : index <= activePhase
+                              ? "bg-cyan-400"
+                              : "bg-gray-500"
+                          }`}
+                        />
+                      </div>
+
+                      {/* Phase Items */}
+                      <ul className="space-y-4">
+                        {phase.items.map((item, itemIndex) => (
+                          <li
+                            key={itemIndex}
+                            className="flex items-start text-gray-300 leading-relaxed"
+                            data-aos="fade-right"
+                            data-aos-delay={400 + index * 100 + itemIndex * 50}
+                          >
+                            <div
+                              className={`w-2 h-2 rounded-full mt-2 mr-4 flex-shrink-0 transition-all duration-300 ${
+                                phase.status === "current" ||
+                                index <= activePhase
+                                  ? "bg-cyan-400 shadow-[0_0_8px_#00ffff]"
+                                  : "bg-gray-500"
+                              }`}
+                            />
+                            <span className="flex-1">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>

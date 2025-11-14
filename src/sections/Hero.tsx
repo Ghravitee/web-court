@@ -119,7 +119,7 @@ const Hero = () => {
           <div className="mb-8 sm:mb-12">
             {/* Enhanced Main Title with Mega Glow - Responsive */}
             <div className="relative mb-4 sm:mb-6">
-              <h1 className="text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] font-black mb-4 sm:mb-6 bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent tracking-wide relative z-10">
+              <h1 className="sec text-5xl sm:text-7xl lg:text-8xl xl:text-[7rem] font-black mb-4 sm:mb-6 bg-gradient-to-r from-cyan-300 via-cyan-400 to-cyan-500 bg-clip-text text-transparent tracking-wide relative z-10">
                 DEXCOURT
               </h1>
               {/* Mega Text Glow - Responsive */}

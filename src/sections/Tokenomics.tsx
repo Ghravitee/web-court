@@ -20,13 +20,6 @@ interface TokenAllocation {
   locked?: boolean;
 }
 
-interface AllocationCardProps {
-  allocation: TokenAllocation;
-  index: number;
-  isHovered: boolean;
-  onHover: (index: number | null) => void;
-}
-
 const Tokenomics = () => {
   const [activeSection, setActiveSection] = useState("overview");
   const [hoveredSlice, setHoveredSlice] = useState<number | null>(null);
@@ -180,93 +173,44 @@ const Tokenomics = () => {
             <div className="text-sm text-gray-400">$LAW</div>
           </div>
         </div>
-
-        {/* Interactive labels */}
-        {data.map((item, index) => {
-          // Calculate position for labels
-          let cumulativeAngle = -90;
-          for (let i = 0; i < index; i++) {
-            cumulativeAngle += (data[i].percentage / 100) * 360;
-          }
-          const middleAngle = cumulativeAngle + (item.percentage / 100) * 180;
-          const labelRadius = radius + 60;
-          const x =
-            center + labelRadius * Math.cos((middleAngle * Math.PI) / 180);
-          const y =
-            center + labelRadius * Math.sin((middleAngle * Math.PI) / 180);
-
-          return (
-            <div
-              key={item.category}
-              className={`absolute pointer-events-none transition-all duration-300 ${
-                hoveredSlice === index ? "scale-110 z-10" : "scale-100"
-              }`}
-              style={{
-                left: x - 70,
-                top: y - 25,
-              }}
-            >
-              <div
-                className={`px-3 py-2 rounded-xl backdrop-blur-sm border text-center min-w-[140px] ${
-                  hoveredSlice === index
-                    ? "bg-gray-900/90 border-cyan-400/50 shadow-lg shadow-cyan-500/20"
-                    : "bg-gray-900/70 border-gray-600/50"
-                }`}
-              >
-                <div className="text-xs font-semibold text-white leading-tight">
-                  {item.category}
-                </div>
-                <div className="text-sm font-bold text-cyan-400 mt-1">
-                  {item.percentage}%
-                </div>
-              </div>
-            </div>
-          );
-        })}
       </div>
     );
   };
 
-  // Simple card component for allocation details
+  // Simplified AllocationCard without hover props
   const AllocationCard = ({
     allocation,
-    index,
-    isHovered,
-    onHover,
-  }: AllocationCardProps) => {
+  }: {
+    allocation: TokenAllocation;
+    index: number;
+  }) => {
     return (
-      <div
-        className={`p-4 rounded-2xl backdrop-blur-sm border transition-all duration-300 cursor-pointer ${
-          isHovered
-            ? "bg-gray-800/50 border-cyan-400/50 shadow-lg shadow-cyan-500/10 scale-105"
-            : "bg-gray-900/30 border-gray-600/30"
-        }`}
-        onMouseEnter={() => onHover(index)}
-        onMouseLeave={() => onHover(null)}
-      >
-        <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-3 flex-1 min-w-0">
-            <div
-              className="w-4 h-4 rounded-full flex-shrink-0"
-              style={{ backgroundColor: allocation.color }}
-            />
-            <div className="min-w-0 flex-1">
-              <span className="font-semibold text-white text-sm truncate block">
-                {allocation.category}
-              </span>
-              {allocation.locked && (
-                <span className="text-xs bg-amber-500/20 text-amber-300 px-2 py-1 rounded-full inline-block mt-1">
-                  Locked 1 Year
+      <div className="web3-corner-border group relative rounded-3xl p-[2px] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1">
+        <div className="rounded-[1.4rem] h-full p-6 bg-black/40 backdrop-blur-xl shadow-[0_0_40px_#00eaff20] transition-all duration-500 group-hover:shadow-[0_0_70px_#00eaff40]">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-4 flex-1 min-w-0">
+              <div
+                className="w-4 h-4 rounded-full flex-shrink-0"
+                style={{ backgroundColor: allocation.color }}
+              />
+              <div className="min-w-0 flex-1">
+                <span className="font-semibold text-white text-base truncate block">
+                  {allocation.category}
                 </span>
-              )}
+                {allocation.locked && (
+                  <span className="text-xs bg-amber-500/20 text-amber-300 px-2 py-1 rounded-full inline-block mt-1">
+                    Locked 1 Year
+                  </span>
+                )}
+              </div>
             </div>
-          </div>
-          <div className="text-right flex-shrink-0 ml-3">
-            <div className="text-lg font-bold text-cyan-400">
-              {allocation.percentage}%
-            </div>
-            <div className="text-xs text-gray-400 truncate">
-              {allocation.amount}
+            <div className="text-right flex-shrink-0 ml-3">
+              <div className="text-lg font-bold text-cyan-400">
+                {allocation.percentage}%
+              </div>
+              <div className="text-sm text-gray-300 truncate">
+                {allocation.amount}
+              </div>
             </div>
           </div>
         </div>
@@ -274,7 +218,7 @@ const Tokenomics = () => {
     );
   };
 
-  // Section renderers with AOS
+  // Section renderers with AOS - Updated to match features section style
   const renderOverview = () => (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {tokenDetails.map((detail, index) => (
@@ -282,19 +226,14 @@ const Tokenomics = () => {
           key={detail.label}
           data-aos="fade-up"
           data-aos-delay={index * 100}
-          className="p-6 rounded-2xl transition-all duration-300"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
-            borderColor: "rgba(34, 211, 238, 0.3)",
-          }}
+          className="web3-corner-border group relative rounded-3xl p-[2px] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1"
         >
-          <div className="flex items-center mb-4">
-            <h3 className="text-lg font-semibold text-cyan-400">
+          <div className="rounded-[1.4rem] h-full p-6 bg-black/40 backdrop-blur-xl shadow-[0_0_40px_#00eaff20] transition-all duration-500 group-hover:shadow-[0_0_70px_#00eaff40]">
+            <h3 className="text-lg font-semibold text-cyan-400 mb-3">
               {detail.label}
             </h3>
+            <p className="text-2xl font-bold text-white">{detail.value}</p>
           </div>
-          <p className="text-2xl font-bold text-white">{detail.value}</p>
         </div>
       ))}
     </div>
@@ -305,9 +244,9 @@ const Tokenomics = () => {
       <h3
         data-aos="fade-up"
         data-aos-delay="100"
-        className="text-2xl font-bold hank mb-8 text-center"
+        className="text-3xl font-bold text-white mb-8 text-center"
       >
-        Tax Distribution (5% Total)
+        Tax Distribution <span className="text-cyan-400">(5% Total)</span>
       </h3>
       <div className="grid md:grid-cols-3 gap-6">
         {taxDistribution.map((tax, index) => (
@@ -315,23 +254,18 @@ const Tokenomics = () => {
             key={tax.allocation}
             data-aos="fade-up"
             data-aos-delay={200 + index * 100}
-            className="p-6 rounded-2xl transition-all duration-300 relative overflow-hidden"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
-              borderColor: "rgba(34, 211, 238, 0.3)",
-            }}
+            className="web3-corner-border group relative rounded-3xl p-[2px] transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1"
           >
-            <div className="relative z-10">
+            <div className="rounded-[1.4rem] h-full p-6 bg-black/40 backdrop-blur-xl shadow-[0_0_40px_#00eaff20] transition-all duration-500 group-hover:shadow-[0_0_70px_#00eaff40]">
               <div className="text-center mb-4">
                 <div className="text-3xl font-bold text-cyan-400 mb-2">
                   {tax.percentage}
                 </div>
-                <h4 className="text-lg font-semibold text-white">
+                <h4 className="text-xl font-bold text-white mb-3">
                   {tax.allocation}
                 </h4>
               </div>
-              <p className="text-gray-300 text-sm text-center leading-relaxed">
+              <p className="text-gray-300 text-center leading-relaxed">
                 {tax.purpose}
               </p>
             </div>
@@ -352,15 +286,13 @@ const Tokenomics = () => {
         <DonutChart data={tokenAllocation} size={350} />
       </div>
 
-      {/* Allocation Details */}
+      {/* Allocation Details - Removed data-aos to prevent re-animation */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
         {tokenAllocation.map((allocation, index) => (
           <AllocationCard
             key={allocation.category}
             allocation={allocation}
             index={index}
-            isHovered={hoveredSlice === index}
-            onHover={setHoveredSlice}
           />
         ))}
       </div>
@@ -368,40 +300,39 @@ const Tokenomics = () => {
   );
 
   return (
-    <section id="tokenomics" className="relative pt-10 px-6 text-white">
-      {/* <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-cyan-600/20 blur-3xl"></div> */}
-      <div className="max-w-6xl mx-auto">
-        {/* Header */}
+    <section id="tokenomics" className="relative py-20 px-6 text-white">
+      <div className="max-w-7xl mx-auto">
+        {/* Header - Matching Features Section Style */}
         <div className="text-center mb-16">
-          <div
-            data-aos="fade-up"
-            data-aos-delay="100"
-            className="inline-flex items-center justify-center mb-4"
-          >
-            <h2 className="lg:text-[2.7rem] text-[2.5rem] font-bold hank">
-              Tokenomics
-            </h2>
-          </div>
-          <p
+          <h2
             data-aos="fade-up"
             data-aos-delay="200"
-            className="text-xl text-white/80 max-w-2xl mx-auto"
+            className="sec text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent"
           >
-            The $LAW token powers every function of the DexCourt ecosystem —
-            from governance and voting to community rewards.
+            Tokenomics
+          </h2>
+
+          <p
+            data-aos="fade-up"
+            data-aos-delay="300"
+            className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          >
+            The <span className="text-cyan-400 font-bold">$LAW</span> token
+            powers every function of the DexCourt ecosystem — from governance
+            and voting to community rewards.
           </p>
         </div>
 
-        {/* Navigation Tabs */}
+        {/* Navigation Tabs - Updated Style */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {["overview", "tax", "allocation"].map((tab) => (
             <button
               key={tab}
               onClick={() => setActiveSection(tab)}
-              className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
+              className={`px-6 py-3 sec rounded-2xl font-semibold transition-all duration-300 ${
                 activeSection === tab
-                  ? "bg-cyan-500/40 text-white shadow-lg shadow-cyan-500/10"
-                  : "bg-gray-800/50 text-gray-300 hover:bg-gray-700/50"
+                  ? "bg-cyan-500/20 text-white border border-cyan-500/30 shadow-lg shadow-cyan-500/10"
+                  : "bg-gray-800/30 text-gray-300 hover:bg-gray-700/30 border border-gray-600/30"
               }`}
             >
               {tab === "overview" && "Token Overview"}

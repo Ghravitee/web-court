@@ -46,7 +46,7 @@ const RevenueAccordion = () => {
           <h2
             data-aos="fade-up"
             data-aos-delay="100"
-            className="text-3xl md:text-[3rem] font-bold mb-4"
+            className="text-3xl md:text-[3rem] font-bold mb-4 sec"
           >
             How DexCourt{" "}
             <span className="text-cyan-700 play">Generates Revenue</span>
@@ -82,7 +82,7 @@ const RevenueAccordion = () => {
                     {stream.icon}
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-cyan-400">
+                    <h3 className="sec text-xl font-semibold text-cyan-400">
                       {stream.title}
                     </h3>
                   </div>
