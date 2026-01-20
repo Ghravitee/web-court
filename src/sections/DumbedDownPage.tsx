@@ -73,17 +73,6 @@ const DumbedDownPage = () => {
             </span>
           </div>
 
-          <div
-            className="absolute left-2 md:left-10 -top-4 md:-top-10 w-16 h-16 md:w-32 md:h-32 opacity-20 animate-float"
-            style={{ animationDelay: "1s" }}
-          >
-            <img
-              src="/brain-with-glasses.png"
-              alt="Brain with glasses"
-              className="w-full h-full object-contain rotate-12"
-            />
-          </div>
-
           <h1 className="sec text-xl sm:text-2xl md:text-4xl font-bold mb-4 md:mb-8 text-white max-w-full md:max-w-[40rem] mx-auto">
             DexCourt is basically an{" "}
             <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
