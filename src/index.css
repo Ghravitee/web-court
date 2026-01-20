@@ -54,10 +54,10 @@ main {
   -webkit-backdrop-filter: blur(12px); */
 }
 
-.glass:hover {
+/* .glass:hover {
   border: 1px solid cyan;
   box-shadow: 0 0 10px rgba(34, 211, 238, 0.4), 0 0 20px rgba(34, 211, 238, 0.2);
-  /* transform: scale(1.02); */
+ 
   transition: all 0.25s ease;
   z-index: 1;
   position: relative;
@@ -65,7 +65,7 @@ main {
   isolation: isolate;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-}
+} */
 
 .glass::before {
   content: "";
@@ -79,11 +79,15 @@ main {
 
 /* Neon glow effects */
 .neon {
-  box-shadow: 0 0 0px rgba(34, 211, 238, 0), 0 0 30px rgba(34, 211, 238, 0.25);
+  box-shadow:
+    0 0 0px rgba(34, 211, 238, 0),
+    0 0 30px rgba(34, 211, 238, 0.25);
 }
 
 .neon-hover:hover {
-  box-shadow: 0 0 0px rgba(34, 211, 238, 0), 0 0 36px rgba(34, 211, 238, 0.4);
+  box-shadow:
+    0 0 0px rgba(34, 211, 238, 0),
+    0 0 36px rgba(34, 211, 238, 0.4);
 }
 
 /* Add to your global CSS */

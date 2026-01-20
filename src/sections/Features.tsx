@@ -9,7 +9,7 @@ const BentoFeatures = () => {
     <section
       id="features"
       ref={ref}
-      className="relative py-24  text-white overflow-hidden"
+      className="relative py-24  text-white overflow-hidden rounded-3xl"
     >
       {/* Enhanced Background Effects - Matching Judges Section */}
 

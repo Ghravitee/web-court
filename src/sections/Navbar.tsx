@@ -1,7 +1,12 @@
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 
-const Navbar = () => {
+interface NavbarProps {
+  activeTab: "normal" | "dumbed-down";
+  onTabChange: (tab: "normal" | "dumbed-down") => void;
+}
+
+const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [navBg, setNavBg] = useState(false);
   const [activeLink, setActiveLink] = useState("#home");
@@ -21,7 +26,6 @@ const Navbar = () => {
 
   const menuItems = [
     { label: "Features", href: "#features" },
-
     { label: "Use Cases", href: "#use-cases" },
     { label: "Token Utility", href: "#law" },
     { label: "Tokenomics", href: "#tokenomics" },
@@ -45,21 +49,49 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Nav */}
-          <ul className="hidden xl:flex xl:space-x-[30px] items-center font-raleway font-medium mx-auto">
-            {menuItems.map(({ label, href }) => (
-              <li key={href}>
-                <a
-                  href={href}
-                  className={`transition ${
-                    activeLink === href ? "text-cyan-700" : "text-white"
-                  } hover:text-Purple`}
-                  onClick={() => handleSetActive(href)}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
+          <div className="hidden xl:flex xl:space-x-[30px] items-center font-raleway font-medium mx-auto">
+            {/* Tab Switcher - Compact Version */}
+            <div className="flex items-center gap-1 mr-6 p-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20">
+              <button
+                onClick={() => onTabChange("normal")}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                  activeTab === "normal"
+                    ? "bg-cyan-500 text-white shadow-md"
+                    : "text-cyan-300 hover:text-white hover:bg-cyan-500/20"
+                }`}
+              >
+                Normal
+              </button>
+              <button
+                onClick={() => onTabChange("dumbed-down")}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+                  activeTab === "dumbed-down"
+                    ? "bg-cyan-500 text-white shadow-md"
+                    : "text-cyan-300 hover:text-white hover:bg-cyan-500/20"
+                }`}
+              >
+                Dumb it down for me
+              </button>
+            </div>
+
+            {activeTab === "normal" && (
+              <ul className="flex space-x-[30px] items-center">
+                {menuItems.map(({ label, href }) => (
+                  <li key={href}>
+                    <a
+                      href={href}
+                      className={`transition ${
+                        activeLink === href ? "text-cyan-700" : "text-white"
+                      } hover:text-Purple`}
+                      onClick={() => handleSetActive(href)}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           <a
             href="#"
@@ -69,6 +101,7 @@ const Navbar = () => {
           >
             Launch App
           </a>
+
           <div className="flex items-center gap-3">
             {/* Mobile menu toggle */}
             <button className="xl:hidden z-[60]">
@@ -91,32 +124,61 @@ const Navbar = () => {
       {/* Mobile Menu Overlay & Slide-In Panel */}
       {isOpen && (
         <div
-          className={`block xl:hidden fixed inset-0 z-20 transition-all duration-300 `}
+          className={`block xl:hidden fixed inset-0 z-20 transition-all duration-300`}
           onClick={() => setIsOpen(false)}
         >
           <div
-            className={`absolute z-10 sm:w-1/2 bg-white/2 backdrop-blur-2xl text-black right-0 top-0 h-screen w-[70%] transform transition-transform duration-300 ${
+            className={`absolute z-10 sm:w-1/2 bg-white/2 backdrop-blur-2xl text-black right-0 top-14 h-screen w-[70%] transform transition-transform duration-300 ${
               isOpen ? "translate-x-0" : "translate-x-full"
             }`}
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex justify-end p-4">
-              <FiX
-                className="text-white text-2xl cursor-pointer"
-                onClick={() => setIsOpen(false)}
-              />
-            </div>
-            <div className="flex flex-col px-6 gap-6 mt-20">
-              {menuItems.map(({ label, href }) => (
-                <a
-                  key={href}
-                  href={href}
-                  className="text-lg uppercase tracking-widest dark:text-white text-black"
-                  onClick={() => handleSetActive(href)}
+            <div className="flex justify-end p-4"></div>
+
+            {/* Mobile Tab Switcher - Compact */}
+            <div className="flex flex-col gap-4 px-6 mb-6">
+              <div className="flex rounded-full bg-cyan-500/10 border border-cyan-500/20 p-0.5">
+                <button
+                  onClick={() => {
+                    onTabChange("normal");
+                    setIsOpen(false);
+                  }}
+                  className={`flex-1 px-3 py-2 rounded-full text-xs font-medium ${
+                    activeTab === "normal"
+                      ? "bg-cyan-500 text-white"
+                      : "text-cyan-300"
+                  }`}
                 >
-                  {label}
-                </a>
-              ))}
+                  Normal
+                </button>
+                <button
+                  onClick={() => {
+                    onTabChange("dumbed-down");
+                    setIsOpen(false);
+                  }}
+                  className={`flex-1 px-3 py-2 rounded-full text-xs font-medium ${
+                    activeTab === "dumbed-down"
+                      ? "bg-cyan-500 text-white"
+                      : "text-cyan-300"
+                  }`}
+                >
+                  Dumb it down for me
+                </button>
+              </div>
+            </div>
+
+            <div className="flex flex-col px-6 gap-6">
+              {activeTab === "normal" &&
+                menuItems.map(({ label, href }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    className="text-lg uppercase tracking-widest dark:text-white text-black"
+                    onClick={() => handleSetActive(href)}
+                  >
+                    {label}
+                  </a>
+                ))}
 
               <a
                 href="#"

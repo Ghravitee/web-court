@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -13,8 +13,13 @@ import Tokenomics from "./sections/Tokenomics";
 import RevenueAccordion from "./sections/RevenueAccordion";
 import Roadmap from "./sections/Roadmap";
 import Footer from "./sections/Footer";
+import DumbedDownPage from "./sections/DumbedDownPage";
+
+type TabType = "normal" | "dumbed-down";
 
 const App = () => {
+  const [activeTab, setActiveTab] = useState<TabType>("normal");
+
   useEffect(() => {
     AOS.init({
       duration: 400,
@@ -52,26 +57,33 @@ const App = () => {
 
       {/* Content */}
       <div className="relative z-10">
-        <Navbar />
+        <Navbar activeTab={activeTab} onTabChange={setActiveTab} />
 
-        {/* Hero with extended gradient that flows into Features */}
-        <div className="relative">
-          <Hero />
-          {/* Gradient bridge between Hero and Features */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-900/20 to-transparent pointer-events-none"></div>
-        </div>
+        {activeTab === "normal" ? (
+          <>
+            {/* Hero with extended gradient that flows into Features */}
+            <div className="relative">
+              <Hero />
+              {/* Gradient bridge between Hero and Features */}
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cyan-900/20 to-transparent pointer-events-none"></div>
+            </div>
 
-        {/* Features section with seamless background */}
-        <div className="relative -mt-32 pt-32">
-          <BentoFeatures />
-        </div>
+            {/* Features section with seamless background */}
+            <div className="relative -mt-32 pt-32">
+              <BentoFeatures />
+            </div>
 
-        <JudgesSection />
-        <PlatformUseCases />
-        <TokenUtility />
-        <Tokenomics />
-        <RevenueAccordion />
-        <Roadmap />
+            <JudgesSection />
+            <PlatformUseCases />
+            <TokenUtility />
+            <Tokenomics />
+            <RevenueAccordion />
+            <Roadmap />
+          </>
+        ) : (
+          <DumbedDownPage />
+        )}
+
         <Footer />
       </div>
     </main>
