@@ -93,7 +93,7 @@ const DumbedDownPage = () => {
         {/* Main Content */}
         <div className="space-y-6 md:space-y-12">
           {/* What DexCourt Is - Mobile responsive grid */}
-          <div className="max-w-4xl mx-auto py-6 md:py-10">
+          <div className="max-w-4xl mx-auto py-2 md:pb-10">
             <div className="rounded-xl md:rounded-3xl p-3 md:p-6 lg:p-8">
               <div className="flex items-center gap-2 md:gap-4 mb-3 md:mb-4">
                 <div className="p-2 md:p-3 rounded-lg md:rounded-xl bg-cyan-500/20">
