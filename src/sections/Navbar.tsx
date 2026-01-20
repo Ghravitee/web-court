@@ -102,7 +102,35 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
             Launch App
           </a>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 lg:hidden">
+            <div className="flex rounded-full bg-cyan-500/10 border border-cyan-500/20 p-0.5">
+              <button
+                onClick={() => {
+                  onTabChange("normal");
+                  setIsOpen(false);
+                }}
+                className={`flex-1 px-3 py-1 rounded-full text-xs font-medium ${
+                  activeTab === "normal"
+                    ? "bg-cyan-500 text-white"
+                    : "text-cyan-300"
+                }`}
+              >
+                Normal
+              </button>
+              <button
+                onClick={() => {
+                  onTabChange("dumbed-down");
+                  setIsOpen(false);
+                }}
+                className={`flex-1 px-3 py-2 rounded-full text-xs font-medium ${
+                  activeTab === "dumbed-down"
+                    ? "bg-cyan-500 text-white"
+                    : "text-cyan-300"
+                }`}
+              >
+                Dumb it down for me
+              </button>
+            </div>
             {/* Mobile menu toggle */}
             <button className="xl:hidden z-[60]">
               {isOpen ? (
@@ -136,36 +164,7 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
             <div className="flex justify-end p-4"></div>
 
             {/* Mobile Tab Switcher - Compact */}
-            <div className="flex flex-col gap-4 px-6 mb-6">
-              <div className="flex rounded-full bg-cyan-500/10 border border-cyan-500/20 p-0.5">
-                <button
-                  onClick={() => {
-                    onTabChange("normal");
-                    setIsOpen(false);
-                  }}
-                  className={`flex-1 px-3 py-2 rounded-full text-xs font-medium ${
-                    activeTab === "normal"
-                      ? "bg-cyan-500 text-white"
-                      : "text-cyan-300"
-                  }`}
-                >
-                  Normal
-                </button>
-                <button
-                  onClick={() => {
-                    onTabChange("dumbed-down");
-                    setIsOpen(false);
-                  }}
-                  className={`flex-1 px-3 py-2 rounded-full text-xs font-medium ${
-                    activeTab === "dumbed-down"
-                      ? "bg-cyan-500 text-white"
-                      : "text-cyan-300"
-                  }`}
-                >
-                  Dumb it down for me
-                </button>
-              </div>
-            </div>
+            <div className="flex flex-col gap-4 px-6 mb-6"></div>
 
             <div className="flex flex-col px-6 gap-6">
               {activeTab === "normal" &&
