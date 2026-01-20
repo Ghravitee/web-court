@@ -46,7 +46,7 @@ const App = () => {
   }, []);
 
   return (
-    <main className="relative overflow-hidden">
+    <main className="relative">
       {/* Global Background */}
       <div className="fixed inset-0 bg-black -z-50">
         {/* Enhanced Background Effects */}
