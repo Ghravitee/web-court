@@ -148,8 +148,8 @@ const Tokenomics = () => {
                     hoveredSlice === null
                       ? 1
                       : hoveredSlice === index
-                      ? 1
-                      : 0.7,
+                        ? 1
+                        : 0.7,
                 }}
               />
             );
@@ -301,7 +301,7 @@ const Tokenomics = () => {
 
   return (
     <section id="tokenomics" className="relative py-20 px-6 text-white">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header - Matching Features Section Style */}
         <div className="text-center mb-16">
           <h2

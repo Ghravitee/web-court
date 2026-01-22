@@ -20,6 +20,11 @@ type TabType = "normal" | "dumbed-down";
 const App = () => {
   const [activeTab, setActiveTab] = useState<TabType>("normal");
 
+  // Scroll to top on initial load and tab switch
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]); // This will run when activeTab changes
+
   useEffect(() => {
     AOS.init({
       duration: 400,
@@ -39,6 +44,9 @@ const App = () => {
     window.addEventListener("load", refreshAOS);
     window.addEventListener("resize", refreshAOS);
 
+    // Scroll to top on page reload
+    window.scrollTo(0, 0);
+
     return () => {
       window.removeEventListener("load", refreshAOS);
       window.removeEventListener("resize", refreshAOS);
@@ -50,7 +58,7 @@ const App = () => {
       {/* Global Background */}
       <div className="fixed inset-0 bg-black -z-50">
         {/* Enhanced Background Effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-900/20 via-purple-900/10 to-transparent"></div>
+        <div className="absolute inset送信に失敗しました。もう一度お試しください。0 bg-gradient-to-br from-cyan-900/20 via-purple-900/10 to-transparent"></div>
         <div className="absolute top-1/4 -left-10 w-72 h-72 bg-cyan-500/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 -right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
       </div>

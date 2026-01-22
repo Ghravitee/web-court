@@ -89,7 +89,7 @@ const JudgesSection = () => {
   return (
     <section
       id="judges"
-      className="relative py-24 px-6 text-white overflow-hidden "
+      className="relative pb-24 px-6 text-white overflow-hidden "
     >
       <div className="max-w-5xl mx-auto relative z-10">
         {/* Header Section with AOS Animations */}

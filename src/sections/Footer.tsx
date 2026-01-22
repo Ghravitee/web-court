@@ -1,5 +1,6 @@
 import { FaTelegram, FaGithub, FaDiscord } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import logo from "../assets/DexCourt-logo.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -46,10 +47,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand Section */}
           <div className="flex flex-col items-center md:items-start">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center">
-                <span className="text-white font-bold text-lg">D</span>
-              </div>
+            <div className="flex items-center gap-1 mb-4">
+              <a href="/" className="">
+                <img src={logo} alt="" className="size-16 " />
+                {/* <span className="text-teal-300 font-bold text-lg">DexCourt</span> */}
+              </a>
               <span className="text-white font-bold text-2xl">DexCourt</span>
             </div>
             <p className="text-gray-400 text-center md:text-left max-w-xs">
