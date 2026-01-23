@@ -192,11 +192,12 @@ main {
 .web3-corner-border {
   position: relative;
   border-radius: 1.5rem;
-  overflow: hidden;
+  /* overflow: hidden; */
+  border: 1px solid cyan;
 }
 
 /* Top-Right Gradient Corner */
-.web3-corner-border::before {
+/* .web3-corner-border::before {
   content: "";
   position: absolute;
   top: -2px;
@@ -212,10 +213,10 @@ main {
   );
   filter: blur(12px);
   pointer-events: none;
-}
+} */
 
 /* Bottom-Left Gradient Corner */
-.web3-corner-border::after {
+/* .web3-corner-border::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -231,7 +232,7 @@ main {
   );
   filter: blur(12px);
   pointer-events: none;
-}
+} */
 
 .web3-corner-border:hover::before,
 .web3-corner-border:hover::after {

@@ -61,9 +61,10 @@ const TokenUtility = () => {
             data-aos-delay="300"
             className="text-xl text-black max-w-3xl mx-auto leading-relaxed"
           >
-            The $LAW token fuels governance, participation, and rewards across
-            DexCourt. Holding $LAW gives users influence and access within the
-            ecosystem.
+            The <span className="font-bold">$LAW</span> token fuels governance,
+            participation, and rewards across DexCourt. Holding{" "}
+            <span className="font-bold">$LAW</span> gives users influence and
+            access within the ecosystem.
           </p>
         </div>
 

@@ -114,7 +114,7 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="100"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300 border border-cyan-500"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
@@ -154,7 +154,7 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="200"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all relative"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all relative border border-cyan-500"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
@@ -195,7 +195,7 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="300"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300 border border-cyan-500"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
@@ -235,7 +235,7 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="400"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300 border border-cyan-500"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
@@ -275,7 +275,7 @@ const PlatformUseCases = () => {
             <div
               data-aos="fade-up"
               data-aos-delay="500"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300"
+              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300 border border-cyan-500"
               style={{
                 background:
                   "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
