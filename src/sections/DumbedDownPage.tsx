@@ -8,15 +8,12 @@ import {
   Zap,
   AlertCircle,
   ThumbsUp,
-  TrendingUp,
   Gem,
   Coins,
   CheckCircle,
   Search,
   Camera,
   Gavel,
-  Popcorn,
-  Target,
   ShieldCheck,
   Landmark,
   Building,
@@ -28,7 +25,7 @@ import lock from "../assets/lock.webp";
 import jury from "../assets/jury.webp";
 import stalk from "../assets/stalk.webp";
 import { TiCancel } from "react-icons/ti";
-
+import logo from "../assets/DexCourt-logo.webp";
 // Import AOS
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -100,7 +97,6 @@ const DumbedDownPage = () => {
             </p>
           </div>
         </div>
-
         {/* Main Content */}
         <div className="space-y-6 md:space-y-12">
           {/* What DexCourt Is - Mobile responsive grid */}
@@ -1163,71 +1159,121 @@ const DumbedDownPage = () => {
             </div>
           </div>
         </div>
-
         {/* Summary Section - Mobile responsive */}
-        <div
-          data-aos="fade-up"
-          data-aos-delay="300"
-          className="mt-8 md:mt-16 bg-gradient-to-br from-cyan-500/30 to-black/50 p-4 md:p-6 border border-cyan-500/30 rounded-xl md:rounded-3xl max-w-4xl mx-auto"
-        >
+        {/* Summary Section - Mobile responsive */}
+        {/* Summary Section */}
+        <div data-aos="fade-up" data-aos-delay="300" className="mt-8 md:mt-16">
           <div
             data-aos="fade-right"
             data-aos-delay="400"
-            className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6"
+            className="flex items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8"
           >
-            <div className="p-2 md:p-3 rounded-lg md:rounded-xl bg-cyan-500/20">
-              <Scale className="w-6 h-6 md:w-8 md:h-8 text-cyan-400" />
+            <div className="">
+              <img src={logo} alt="" className="size-14" />
             </div>
-            <h2 className="sec text-lg sm:text-xl md:text-3xl font-bold text-white">
+            <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-white text-center">
               In Short (For Very Dumb People), DexCourt is:
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4 mb-6 md:mb-8">
-            {[
-              { icon: Scale, text: "A court" },
-              { icon: Lock, text: "An escrow" },
-              { icon: FileText, text: "A contract system" },
-              { icon: TrendingUp, text: "A reputation tracker" },
-              { icon: Popcorn, text: "A drama containment unit" },
-              { icon: Target, text: "All rolled into one" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                data-aos="zoom-in"
-                data-aos-delay={500 + index * 100}
-                className="p-3 md:p-4 rounded-xl bg-gradient-to-br from-cyan-500/10 to-black/50 border border-cyan-500/30"
+          <div className="max-w-3xl mx-auto mb-8">
+            <ul className="space-y-3 md:space-y-4">
+              <li
+                data-aos="fade-up"
+                data-aos-delay="500"
+                className="flex items-center"
               >
-                <div className="flex justify-center mb-2">
-                  <item.icon className="w-6 h-6 md:w-8 md:h-8 text-cyan-400" />
-                </div>
-                <p className="text-white font-bold text-center text-sm md:text-base">
-                  {item.text}
-                </p>
-              </div>
-            ))}
+                <span className="text-cyan-400 text-xl md:text-2xl font-bold mr-3">
+                  •
+                </span>
+                <span className="text-white text-lg md:text-xl font-bold">
+                  A court
+                </span>
+              </li>
+              <li
+                data-aos="fade-up"
+                data-aos-delay="600"
+                className="flex items-center"
+              >
+                <span className="text-cyan-400 text-xl md:text-2xl font-bold mr-3">
+                  •
+                </span>
+                <span className="text-white text-lg md:text-xl font-bold">
+                  An escrow
+                </span>
+              </li>
+              <li
+                data-aos="fade-up"
+                data-aos-delay="700"
+                className="flex items-center"
+              >
+                <span className="text-cyan-400 text-xl md:text-2xl font-bold mr-3">
+                  •
+                </span>
+                <span className="text-white text-lg md:text-xl font-bold">
+                  A contract system
+                </span>
+              </li>
+              <li
+                data-aos="fade-up"
+                data-aos-delay="800"
+                className="flex items-center"
+              >
+                <span className="text-cyan-400 text-xl md:text-2xl font-bold mr-3">
+                  •
+                </span>
+                <span className="text-white text-lg md:text-xl font-bold">
+                  A reputation tracker
+                </span>
+              </li>
+              <li
+                data-aos="fade-up"
+                data-aos-delay="900"
+                className="flex items-center"
+              >
+                <span className="text-cyan-400 text-xl md:text-2xl font-bold mr-3">
+                  •
+                </span>
+                <span className="text-white text-lg md:text-xl font-bold">
+                  A drama containment unit
+                </span>
+              </li>
+              <li
+                data-aos="fade-up"
+                data-aos-delay="1000"
+                className="flex items-center"
+              >
+                <span className="text-cyan-400 text-xl md:text-2xl font-bold mr-3">
+                  •
+                </span>
+                <span className="text-white text-lg md:text-xl font-bold">
+                  All rolled into one
+                </span>
+              </li>
+            </ul>
+
+            <div
+              data-aos="zoom-in"
+              data-aos-delay="1100"
+              className="mt-8 md:mt-12 p-4 md:p-6"
+            >
+              <p className="text-lg md:text-2xl font-bold text-white text-center leading-relaxed">
+                It makes sure your word means something, your actions follow
+                you, and nonsense has consequences.
+              </p>
+            </div>
           </div>
 
           <div
-            data-aos="zoom-in"
-            data-aos-delay="1100"
-            className="p-4 md:p-6 rounded-xl md:rounded-2xl bg-gradient-to-br from-cyan-500/10 to-black/50 border border-cyan-500/30"
+            data-aos="fade-up"
+            data-aos-delay="1200"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mt-8 md:mt-12 pt-6 md:pt-8 border-t border-gray-700/50"
           >
-            <p className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 text-center">
-              It makes sure your word means something, your actions follow you,
-              and nonsense has consequences.
-            </p>
-            <div
-              data-aos="fade-up"
-              data-aos-delay="1200"
-              className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mt-4 md:mt-6"
-            >
-              <div className="inline-flex items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 rounded-full bg-cyan-500/20 border border-cyan-500/30">
-                <Scale className="w-5 h-5 md:w-6 md:h-6 text-cyan-400" />
-                <span className="text-base md:text-lg font-bold text-white">
-                  Welcome to Web3, but with accountability
-                </span>
-              </div>
+            <div className="inline-flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 border border-blue-500/50 shadow-lg">
+              <Scale className="w-5 h-5 md:w-6 md:h-6 text-white" />
+              <span className="text-base md:text-lg font-bold text-white">
+                Welcome to Web3, but with accountability
+              </span>
             </div>
           </div>
         </div>

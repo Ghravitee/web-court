@@ -37,7 +37,7 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
   return (
     <>
       <header
-        className={`py-4 px-6 fixed w-full top-0 left-0 z-50 transition-all duration-300 backdrop-blur-[20px] ${
+        className={`py-2 px-6 fixed w-full top-0 left-0 z-50 transition-all duration-300 backdrop-blur-[20px] ${
           navBg ? "bg-Dark-Purple" : "bg-transparent"
         }`}
       >

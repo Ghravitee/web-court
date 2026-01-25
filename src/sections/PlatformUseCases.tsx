@@ -1,10 +1,10 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Briefcase, Handshake, Building, Scale, Star } from "lucide-react";
 
 const features = [
   {
     id: "freelancer",
-    icon: <Briefcase className="w-8 h-8 text-cyan-400" />,
+    icon: <Briefcase className="size-16 text-cyan-400" />,
     title: "Freelancer & Client Agreements",
     description:
       "DexCourt gives freelancers and clients peace of mind through secure agreements and escrow payments. Funds are only released when both parties confirm that milestones are met.",
@@ -16,7 +16,7 @@ const features = [
   },
   {
     id: "reputation",
-    icon: <Star className="w-8 h-8 text-cyan-400" />,
+    icon: <Star className="size-16 text-cyan-400" />,
     title: "Reputation Tracker & Vetting System",
     description:
       "DexCourt doubles as a public reputation hub — helping users vet others before doing business with them. Reputation reflects honesty, reliability, and dispute history — even from offline cases.",
@@ -28,7 +28,7 @@ const features = [
   },
   {
     id: "casual",
-    icon: <Handshake className="w-8 h-8 text-cyan-400" />,
+    icon: <Handshake className="size-16 text-cyan-400" />,
     title: "Casual or Personal Agreements",
     description:
       "Even informal or offline agreements can be documented and protected using DexCourt's off-chain agreement feature. It serves as a verifiable record in case things go wrong — even if no payment was held in escrow.",
@@ -40,7 +40,7 @@ const features = [
   },
   {
     id: "partnership",
-    icon: <Building className="w-8 h-8 text-cyan-400" />,
+    icon: <Building className="size-16 text-cyan-400" />,
     title: "Partnerships & Project Deals",
     description:
       "Partnerships often involve mutual promises and milestones — DexCourt's milestone-based escrow and agreement system ensures both sides stay accountable.",
@@ -52,7 +52,7 @@ const features = [
   },
   {
     id: "dispute",
-    icon: <Scale className="w-8 h-8 text-cyan-400" />,
+    icon: <Scale className="size-16 text-cyan-400" />,
     title: "Real-World Disputes",
     description:
       "DexCourt can also be used to settle real-world or hybrid disputes, such as services, investments, or physical goods deals that didn't happen digitally. While the platform can't force refunds, it can enforce accountability through reputation.",
@@ -66,251 +66,189 @@ const features = [
 
 const PlatformUseCases = () => {
   const sectionRef = useRef(null);
+  const [, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <section
       id="use-cases"
-      className="pt-16 lg:px-6 text-white relative"
+      className="py-12 md:pt-16 lg:pt-24 text-white relative"
       ref={sectionRef}
     >
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-start gap-8">
-          {/* Content */}
-          <div className="flex-1">
-            <div className="relative z-0">
-              {/* Header */}
-              <div className="text-center mb-16">
-                <h2
-                  data-aos="fade-up"
-                  data-aos-delay="100"
-                  className="seclg:text-[2.7rem] text-[2.5rem] font-bold mb-4 leading-[1]"
-                >
-                  Platform <span className="play text-cyan-700">Usecases</span>
-                </h2>
+      {/* Header Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center mb-12 md:mb-2">
+        <h2
+          data-aos="fade-up"
+          data-aos-delay="100"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent"
+        >
+          Platform <span className="text-cyan-400">Usecases</span>
+        </h2>
 
-                <p
-                  data-aos="fade-up"
-                  data-aos-delay="200"
-                  className="lg:text-lg text-gray-300 max-w-2xl mx-auto"
-                >
-                  DexCourt goes beyond smart contracts — it's a platform where
-                  any form of agreement or transaction can be made verifiable,
-                  and where justice and reputation are upheld whether or not a
-                  deal took place on-chain. From freelancers to founders,
-                  traders to community members, DexCourt provides accountability
-                  and protection in every kind of deal — digital or physical.
-                </p>
+        <p
+          data-aos="fade-up"
+          data-aos-delay="200"
+          className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 md:px-0"
+        >
+          DexCourt goes beyond smart contracts — it's a platform where any form
+          of agreement or transaction can be made verifiable, and where justice
+          and reputation are upheld whether or not a deal took place on-chain.
+          From freelancers to founders, traders to community members, DexCourt
+          provides accountability and protection in every kind of deal — digital
+          or physical.
+        </p>
+      </div>
+
+      {/* Mobile Layout (Below 1024px) */}
+      <div className="lg:hidden max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="space-y-6">
+          {features.map((feature, idx) => (
+            <div
+              key={feature.id}
+              data-aos="fade-up"
+              data-aos-delay={300 + idx * 100}
+              className="rounded-3xl bg-gradient-to-br from-cyan-900/20 to-black/50 backdrop-blur-xl p-6 border border-cyan-300/50"
+            >
+              <div className="flex flex-col items-center gap-6">
+                {/* Icon Section */}
+                <div className="p-4 rounded-2xl bg-cyan-500/10 border border-cyan-300/50 w-fit">
+                  {feature.icon}
+                </div>
+
+                {/* Text Content Section */}
+                <div className="w-full">
+                  <h3 className="text-xl font-bold text-white mb-3 text-center">
+                    {feature.title}
+                  </h3>
+
+                  <div className="space-y-4">
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      {feature.description}
+                    </p>
+
+                    {feature.example && (
+                      <div
+                        className={`text-sm leading-relaxed ${feature.exampleColor} font-medium bg-cyan-900/20 p-4 rounded-xl border border-cyan-700/30`}
+                      >
+                        {feature.example.split("\n").map((line, index) => (
+                          <p key={index} className={index > 0 ? "mt-2" : ""}>
+                            {line}
+                          </p>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Who Benefits Section */}
+                    <div className="p-4 bg-cyan-900/30 rounded-xl border border-cyan-700/30">
+                      <p className="text-sm font-semibold text-cyan-300 mb-2">
+                        Who Benefits:
+                      </p>
+                      <p className="text-sm text-cyan-200/90 leading-relaxed">
+                        {feature.whoBenefits}
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
 
-      <div className="relative pt-10 pb-16 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          {/* 🧱 Bento Grid Layout with AOS */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-[40rem] mx-auto lg:max-w-none">
-            {/* Freelancer & Client Agreements */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="100"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300 border border-cyan-500"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
-                borderColor: "rgba(34, 211, 238, 0.3)",
-              }}
-            >
-              {features[0].icon}
-              <h3 className="sec text-xl font-semibold mt-4 mb-2">
-                {features[0].title}
-              </h3>
-              <div className="text-sm text-gray-300 leading-relaxed space-y-3">
-                <p>{features[0].description}</p>
-                {features[0].example && (
-                  <div
-                    className={`mt-3 text-xs leading-relaxed ${features[0].exampleColor} font-medium`}
-                  >
-                    {features[0].example.split("\n").map((line, index) => (
-                      <p key={index} className={index > 0 ? "mt-1" : ""}>
-                        {line}
-                      </p>
-                    ))}
-                  </div>
-                )}
-                {/* Who Benefits Section */}
-                <div className="mt-4 p-3 bg-cyan-900/30 rounded-lg border border-cyan-700/30">
-                  <p className="text-xs font-semibold text-cyan-300 mb-1">
-                    Who Benefits:
-                  </p>
-                  <p className="text-xs text-cyan-200/90 leading-relaxed">
-                    {features[0].whoBenefits}
-                  </p>
-                </div>
-              </div>
-            </div>
+      {/* Desktop Stacked Layout (1024px and above) */}
+      <div className="hidden lg:block relative w-full max-w-5xl mx-auto px-4 sm:px-6">
+        <div className="relative h-[500vh]">
+          {features.map((feature, idx) => {
+            const imageRight = idx % 2 === 0;
+            const scaleEnd = 1 - idx * 0.02;
+            const scaleValue = scaleEnd;
 
-            {/* Reputation Tracking */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="200"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all relative border border-cyan-500"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
-                borderColor: "rgba(34, 211, 238, 0.3)",
-              }}
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-              {features[1].icon}
-              <h3 className="text-xl font-semibold mt-4 mb-2">
-                {features[1].title}
-              </h3>
-              <div className="text-sm text-gray-300 leading-relaxed space-y-3">
-                <p>{features[1].description}</p>
-                {features[1].example && (
-                  <div
-                    className={`mt-3 text-xs leading-relaxed ${features[1].exampleColor} font-medium`}
-                  >
-                    {features[1].example.split("\n").map((line, index) => (
-                      <p key={index} className={index > 0 ? "mt-1" : ""}>
-                        {line}
-                      </p>
-                    ))}
-                  </div>
-                )}
-                {/* Who Benefits Section */}
-                <div className="mt-4 p-3 bg-cyan-900/30 rounded-lg border border-cyan-700/30">
-                  <p className="text-xs font-semibold text-cyan-300 mb-1">
-                    Who Benefits:
-                  </p>
-                  <p className="text-xs text-cyan-200/90 leading-relaxed">
-                    {features[1].whoBenefits}
-                  </p>
-                </div>
-              </div>
-            </div>
+            return (
+              <div
+                key={feature.id}
+                className="sticky top-0 h-screen flex items-center justify-center"
+              >
+                <div
+                  className="relative rounded-[2.5rem] p-[2px] bg-[#0f0f0f] border border-cyan-300/50 w-full max-w-4xl transition-transform duration-700 mx-4"
+                  style={{
+                    transform: `scale(${scaleValue})`,
+                  }}
+                >
+                  <div className="relative rounded-[2.3rem] bg-gradient-to-br from-cyan-900/20 to-black/50 backdrop-blur-xl p-8 lg:px-12 lg:py-8 overflow-hidden">
+                    {/* Background Glow */}
+                    <div
+                      className={`absolute ${
+                        imageRight ? "right-0" : "left-0"
+                      } top-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/30 blur-[140px]`}
+                    />
 
-            {/* Casual or Personal Agreements */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="300"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300 border border-cyan-500"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
-                borderColor: "rgba(34, 211, 238, 0.3)",
-              }}
-            >
-              {features[2].icon}
-              <h3 className="text-xl font-semibold mt-4 mb-2">
-                {features[2].title}
-              </h3>
-              <div className="text-sm text-gray-300 leading-relaxed space-y-3">
-                <p>{features[2].description}</p>
-                {features[2].example && (
-                  <div
-                    className={`mt-3 text-xs leading-relaxed ${features[2].exampleColor} font-medium`}
-                  >
-                    {features[2].example.split("\n").map((line, index) => (
-                      <p key={index} className={index > 0 ? "mt-1" : ""}>
-                        {line}
-                      </p>
-                    ))}
-                  </div>
-                )}
-                {/* Who Benefits Section */}
-                <div className="mt-4 p-3 bg-cyan-900/30 rounded-lg border border-cyan-700/30">
-                  <p className="text-xs font-semibold text-cyan-300 mb-1">
-                    Who Benefits:
-                  </p>
-                  <p className="text-xs text-cyan-200/90 leading-relaxed">
-                    {features[2].whoBenefits}
-                  </p>
-                </div>
-              </div>
-            </div>
+                    {/* Card Content - 30% Icon, 70% Text */}
+                    <div
+                      className={`relative flex flex-col ${
+                        idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                      } items-center gap-12`}
+                    >
+                      {/* Icon Section (30%) */}
+                      <div className="w-full lg:w-3/10 flex lg:justify-center justify-start">
+                        <div className="p-6 rounded-2xl bg-cyan-500/10 border border-cyan-300/50 w-fit flex items-center justify-center">
+                          {feature.icon}
+                        </div>
+                      </div>
 
-            {/* Partnership & Project Escrow */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="400"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300 border border-cyan-500"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
-                borderColor: "rgba(34, 211, 238, 0.3)",
-              }}
-            >
-              {features[3].icon}
-              <h3 className="text-xl font-semibold mt-4 mb-2">
-                {features[3].title}
-              </h3>
-              <div className="text-sm text-gray-300 leading-relaxed space-y-3">
-                <p>{features[3].description}</p>
-                {features[3].example && (
-                  <div
-                    className={`mt-3 text-xs leading-relaxed ${features[3].exampleColor} font-medium`}
-                  >
-                    {features[3].example.split("\n").map((line, index) => (
-                      <p key={index} className={index > 0 ? "mt-1" : ""}>
-                        {line}
-                      </p>
-                    ))}
-                  </div>
-                )}
-                {/* Who Benefits Section */}
-                <div className="mt-4 p-3 bg-cyan-900/30 rounded-lg border border-cyan-700/30">
-                  <p className="text-xs font-semibold text-cyan-300 mb-1">
-                    Who Benefits:
-                  </p>
-                  <p className="text-xs text-cyan-200/90 leading-relaxed">
-                    {features[3].whoBenefits}
-                  </p>
-                </div>
-              </div>
-            </div>
+                      {/* Text Content Section (70%) */}
+                      <div className="w-full lg:w-7/10">
+                        <h3 className="text-xl font-bold text-white mb-2">
+                          {feature.title}
+                        </h3>
 
-            {/* Dispute Resolution */}
-            <div
-              data-aos="fade-up"
-              data-aos-delay="500"
-              className="flex flex-col justify-evenly rounded-[2rem] p-6 shadow-lg transition-all duration-300 border border-cyan-500"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)",
-                borderColor: "rgba(34, 211, 238, 0.3)",
-              }}
-            >
-              {features[4].icon}
-              <h3 className="text-xl font-semibold mt-4 mb-2">
-                {features[4].title}
-              </h3>
-              <div className="text-sm text-gray-300 leading-relaxed space-y-3">
-                <p>{features[4].description}</p>
-                {features[4].example && (
-                  <div
-                    className={`mt-3 text-xs leading-relaxed ${features[4].exampleColor} font-medium`}
-                  >
-                    {features[4].example.split("\n").map((line, index) => (
-                      <p key={index} className={index > 0 ? "mt-1" : ""}>
-                        {line}
-                      </p>
-                    ))}
+                        <div className="space-y-4">
+                          <p className="text-gray-300 text-sm leading-relaxed">
+                            {feature.description}
+                          </p>
+
+                          {feature.example && (
+                            <div
+                              className={`text-sm leading-relaxed ${feature.exampleColor} font-medium bg-cyan-900/20 p-4 rounded-xl border border-cyan-700/30`}
+                            >
+                              {feature.example
+                                .split("\n")
+                                .map((line, index) => (
+                                  <p
+                                    key={index}
+                                    className={index > 0 ? "mt-1" : ""}
+                                  >
+                                    {line}
+                                  </p>
+                                ))}
+                            </div>
+                          )}
+
+                          {/* Who Benefits Section */}
+                          <div className="p-4 bg-cyan-900/30 rounded-xl border border-cyan-700/30">
+                            <p className="text-sm font-semibold text-cyan-300 mb-1">
+                              Who Benefits:
+                            </p>
+                            <p className="text-sm text-cyan-200/90 leading-relaxed">
+                              {feature.whoBenefits}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                )}
-                {/* Who Benefits Section */}
-                <div className="mt-4 p-3 bg-cyan-900/30 rounded-lg border border-cyan-700/30">
-                  <p className="text-xs font-semibold text-cyan-300 mb-1">
-                    Who Benefits:
-                  </p>
-                  <p className="text-xs text-cyan-200/90 leading-relaxed">
-                    {features[4].whoBenefits}
-                  </p>
                 </div>
               </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </div>
     </section>

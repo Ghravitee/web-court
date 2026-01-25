@@ -82,7 +82,7 @@ const Roadmap = () => {
           {/* Progress Line */}
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-1 bg-gray-700/50 transform md:-translate-x-1/2">
             <div
-              className="absolute top-0 left-0 w-full bg-gradient-to-b from-cyan-400 to-blue-500 transition-all duration-1000 ease-out"
+              className="absolute top-0 left-0 w-full bg-gradient-to-b from-cyan-400 to-cyan-500 transition-all duration-1000 ease-out"
               style={{
                 height: `${(activePhase / (phases.length - 1)) * 100}%`,
               }}
@@ -109,8 +109,8 @@ const Roadmap = () => {
                       phase.status === "current"
                         ? "bg-cyan-400 animate-pulse shadow-[0_0_20px_#00ffff]"
                         : index <= activePhase
-                        ? "bg-cyan-400 shadow-[0_0_15px_#00ffff80]"
-                        : "bg-gray-600"
+                          ? "bg-cyan-400 shadow-[0_0_15px_#00ffff80]"
+                          : "bg-gray-600"
                     }`}
                   />
                 </div>
@@ -152,8 +152,8 @@ const Roadmap = () => {
                               phase.status === "current"
                                 ? "text-cyan-300"
                                 : index <= activePhase
-                                ? "text-cyan-400/70"
-                                : "text-gray-400"
+                                  ? "text-cyan-400/70"
+                                  : "text-gray-400"
                             }`}
                           >
                             {phase.status === "current"
@@ -168,8 +168,8 @@ const Roadmap = () => {
                             phase.status === "current"
                               ? "bg-cyan-400 animate-pulse"
                               : index <= activePhase
-                              ? "bg-cyan-400"
-                              : "bg-gray-500"
+                                ? "bg-cyan-400"
+                                : "bg-gray-500"
                           }`}
                         />
                       </div>
