@@ -94,7 +94,7 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
           </div>
 
           <a
-            href="#"
+            href="https://dev-app.dexcourt.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden w-[12rem] text-center text-sm sm:text-[1rem] font-bold px-6 rounded-full sm:px-[24px] py-3 sm:py-[8px] lg:flex items-center justify-center neon-hover cursor-pointer gap-3 transition-colors relative border border-cyan-400/40 bg-cyan-500/15 text-cyan-200 shadow-[0_0_24px_rgba(34,211,238,0.35)] hover:shadow-[0_0_34px_rgba(34,211,238,0.6)] hover:bg-cyan-500/20"
@@ -180,7 +180,7 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
                 ))}
 
               <a
-                href="#"
+                href="https://dev-app.dexcourt.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="lg:hidden w-[12rem] text-center text-sm sm:text-[1rem] font-bold px-6 rounded-2xl sm:px-[24px] py-3 sm:py-[13px] flex items-center justify-center neon-hover cursor-pointer gap-3 transition-colors relative border border-cyan-400/40 bg-cyan-500/15 text-cyan-200 shadow-[0_0_24px_rgba(34,211,238,0.35)] hover:shadow-[0_0_34px_rgba(34,211,238,0.6)] hover:bg-cyan-500/20"

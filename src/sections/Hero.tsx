@@ -147,7 +147,7 @@ const Hero = () => {
           {/* Buttons - Fully Responsive */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
             <a
-              href="#"
+              href="https://dev-app.dexcourt.com/"
               className="group relative w-full sm:w-36 lg:w-48 xl:w-56 flex items-center justify-center px-4 sm:px-6 py-3 sm:py-2 bg-cyan-500/30 border border-cyan-400/50 sm:border-2 sm:border-cyan-400/70 rounded-xl sm:rounded-2xl lg:rounded-3xl text-cyan-100 font-semibold sm:text-lg transition-all duration-300 hover:bg-cyan-500/40  hover:scale-105 sm:hover:scale-110 backdrop-blur-sm sm:backdrop-blur-2xl"
             >
               <div className="absolute inset-0 rounded-xl sm:rounded-2xl lg:rounded-3xl bg-cyan-400/20 sm:bg-cyan-400/40 blur-md sm:blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
