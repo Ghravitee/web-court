@@ -1169,7 +1169,7 @@ const DumbedDownPage = () => {
             className="flex items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8"
           >
             <div className="">
-              <img src={logo} alt="" className="size-14" />
+              <img src={logo} alt="" className="size-10" />
             </div>
             <h2 className="text-lg sm:text-xl md:text-3xl font-bold text-white text-center">
               In Short (For Very Dumb People), DexCourt is:

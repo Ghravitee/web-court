@@ -44,7 +44,7 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
         <nav className="flex justify-between items-center max-w-[1300px] mx-auto">
           {/* Logo */}
           <a href="/" className="">
-            <img src={logo} alt="" className="size-16 " />
+            <img src={logo} alt="" className="size-10 " />
             {/* <span className="text-teal-300 font-bold text-lg">DexCourt</span> */}
           </a>
 

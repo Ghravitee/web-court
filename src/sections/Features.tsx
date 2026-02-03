@@ -163,19 +163,41 @@ import trending from "../assets/trending.webp";
 
 const BentoFeatures = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  // Preload images
+  useEffect(() => {
+    const preloadImages = async () => {
+      const imageUrls = [shakingHands, escrow, jigsaw, fingerprint, trending];
+
+      const loadPromises = imageUrls.map((src) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = src;
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+      });
+
+      try {
+        await Promise.all(loadPromises);
+        setImagesLoaded(true);
+      } catch (error) {
+        console.error("Failed to preload images:", error);
+        setImagesLoaded(true); // Still continue even if some fail
+      }
+    };
+
+    preloadImages();
+  }, []);
 
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 1024);
     };
 
-    // Initial check
     checkMobile();
-
-    // Add event listener
     window.addEventListener("resize", checkMobile);
-
-    // Cleanup
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
@@ -237,23 +259,14 @@ const BentoFeatures = () => {
         <div className="relative h-[500vh]">
           {featureCards.map((card, idx) => {
             const imageRight = idx % 2 === 0;
-            // const scaleEnd = 1 - idx * 0.02;
-            // const scaleValue = isMobile ? 1 : scaleEnd;
 
             return (
               <div
                 key={card.title}
                 className="sticky top-0 h-screen flex items-center justify-center"
               >
-                <div
-                  className="relative rounded-3xl md:rounded-[2.5rem] p-[2px] bg-[#0f0f0f] border border-cyan-300/50 w-full max-w-4xl transition-transform duration-700 mx-4"
-                  // style={{
-                  //   transform: `scale(${scaleValue})`,
-                  // }}
-                >
+                <div className="relative rounded-3xl md:rounded-[2.5rem] p-[2px] bg-[#0f0f0f] border border-cyan-300/50 w-full max-w-4xl transition-transform duration-700 mx-4">
                   <div className="relative rounded-[calc(2.3rem-2px)] md:rounded-[2.3rem] bg-black/50 backdrop-blur-xl py-4 px-4 md:p-8 lg:px-12 lg:py-8 overflow-hidden h-[450px] md:h-[350px]">
-                    {" "}
-                    {/* Fixed height container */}
                     {/* Background Glow */}
                     <div
                       className={`absolute ${
@@ -264,6 +277,7 @@ const BentoFeatures = () => {
                             : "left-0"
                       } top-1/2 -translate-y-1/2 w-48 h-48 sm:w-64 sm:h-64 md:w-96 md:h-96 bg-cyan-500/30 blur-[80px] sm:blur-[100px] md:blur-[140px]`}
                     />
+
                     {/* Card Content */}
                     <div
                       className={`relative flex flex-col ${
@@ -287,13 +301,21 @@ const BentoFeatures = () => {
                         </div>
                       </div>
 
-                      {/* Image */}
+                      {/* Image with loading state */}
                       <div className="flex-1 w-full lg:w-auto h-full">
                         <div className="rounded-xl border-2 border-cyan-400 overflow-hidden h-full flex items-center">
+                          {!imagesLoaded && (
+                            <div className="w-full h-48 sm:h-56 md:h-64 lg:h-auto bg-cyan-900/20 animate-pulse flex items-center justify-center">
+                              <div className="text-cyan-400">Loading...</div>
+                            </div>
+                          )}
                           <img
                             src={card.img}
-                            className="w-full h-48 sm:h-56 md:h-64 lg:h-auto object-cover"
+                            className={`w-full h-48 sm:h-56 md:h-64 lg:h-auto object-cover ${
+                              !imagesLoaded ? "hidden" : ""
+                            }`}
                             alt={card.title}
+                            loading="lazy" // Add lazy loading
                           />
                         </div>
                       </div>
