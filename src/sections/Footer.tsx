@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="flex flex-col items-center md:items-start">
             <div className="flex items-center gap-1 mb-4">
               <a href="/" className="">
-                <img src={logo} alt="" className="size-16 " />
+                <img src={logo} alt="" className="size-10 " />
                 {/* <span className="text-teal-300 font-bold text-lg">DexCourt</span> */}
               </a>
               <span className="text-white font-bold text-2xl">DexCourt</span>
