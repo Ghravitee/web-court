@@ -1,6 +1,6 @@
-import { FaTelegram, FaGithub, FaDiscord } from "react-icons/fa";
+import { FaDiscord, FaGithub, FaTelegram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import logo from "../assets/DexCourt-logo.webp";
+import logo from "../assets/logo.webp";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

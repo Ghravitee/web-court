@@ -1,66 +1,97 @@
 import { useRef, useState, useEffect } from "react";
-import { Briefcase, Handshake, Building, Scale, Star } from "lucide-react";
+import {
+  Briefcase,
+  Handshake,
+  // Building,
+  // Scale,
+  Star,
+  MegaphoneIcon,
+  Wrench,
+  Users,
+  Rocket,
+  Building2,
+} from "lucide-react";
 
 const features = [
   {
     id: "freelancer",
-    icon: <Briefcase className="size-16 text-cyan-400" />,
-    title: "Freelancer & Client Agreements",
+    icon: <Briefcase className="size-6 lg:size-16 text-cyan-400" />,
+    title: "Freelancer & Clients",
     description:
-      "DexCourt gives freelancers and clients peace of mind through secure agreements and escrow payments. Funds are only released when both parties confirm that milestones are met.",
+      "DexCourt helps freelancers and clients avoid payment and delivery problems by writing clear agreements and protecting money until the job is done properly.",
     example:
-      "Example: A Web3 developer agrees to build a staking dashboard for a project for 0.8 ETH. The client creates an escrow agreement on DexCourt and deposits the full amount. Once the developer delivers the dashboard and the project team confirms it works, payment is released automatically. If there's disagreement over quality or delivery, either party can raise a dispute, where DexCourt judges review the evidence and decide fairly.",
+      "Example: \n  A client hires a designer to build a website. The client locks the payment. If the designer finishes the job, the money is released. If they argue, judges check the work and decide fairly.",
     exampleColor: "text-cyan-500/90",
-    whoBenefits:
-      "Developers, designers, marketers, writers, and clients looking for transparent, secure collaborations.",
   },
   {
-    id: "reputation",
-    icon: <Star className="size-16 text-cyan-400" />,
-    title: "Reputation Tracker & Vetting System",
+    id: "influencers",
+    icon: <MegaphoneIcon className="size-6 lg:size-16 text-cyan-400" />,
+    title: "Influencers & Marketing Deals",
     description:
-      "DexCourt doubles as a public reputation hub — helping users vet others before doing business with them. Reputation reflects honesty, reliability, and dispute history — even from offline cases.",
+      "DexCourt makes sure influencers get paid only when they deliver what was agreed, and projects pay only for real results.",
     example:
-      "Example: A founder planning to hire a Telegram manager searches their DexCourt profile and discovers they have 3 unresolved disputes and appear in Ignored Rulings with a Trust Score of 41/100. Another candidate, verified on DexCourt, shows 12 successful contracts, no disputes, and a Trust Score of 93/100. The founder confidently hires the second candidate, avoiding a potential loss.",
+      "Example: \n  An influencer agrees to post 2 tweets and 1 video. The project locks payment. If there's a dispute, judges check the posts and dates, then decide.",
     exampleColor: "text-cyan-500/90",
-    whoBenefits:
-      "Anyone in Web3 — founders, traders, investors, DAOs, and freelancers — who needs to verify credibility before trusting someone.",
-  },
-  {
-    id: "casual",
-    icon: <Handshake className="size-16 text-cyan-400" />,
-    title: "Casual or Personal Agreements",
-    description:
-      "Even informal or offline agreements can be documented and protected using DexCourt's off-chain agreement feature. It serves as a verifiable record in case things go wrong — even if no payment was held in escrow.",
-    example:
-      "Example: Two NFT traders agree in DMs that one will create a logo and the other will send a rare NFT in exchange. After delivery, the NFT sender disappears without sending the logo. The designer raises a dispute on DexCourt, attaching screenshots and transaction proof. Although no funds were escrowed, judges rule that the trader violated the agreement and issue a public ruling. If the trader refuses to apologize or settle, their DexCourt reputation score drops and their username is listed under 'Ignored Rulings.'",
-    exampleColor: "text-cyan-500/90",
-    whoBenefits:
-      "Friends, traders, moderators, or anyone who frequently makes informal Web3 or personal deals.",
   },
   {
     id: "partnership",
-    icon: <Building className="size-16 text-cyan-400" />,
-    title: "Partnerships & Project Deals",
+    icon: <Handshake className="size-6 lg:size-16 text-cyan-400" />,
+    title: "Partnerships & Co-Founders",
     description:
-      "Partnerships often involve mutual promises and milestones — DexCourt's milestone-based escrow and agreement system ensures both sides stay accountable.",
+      "DexCourt helps partners clearly define roles, ownership, and responsibilities so no one can change the story later.",
     example:
-      "Example: A DeFi project partners with a YouTube influencer for promotion worth 4 ETH, payable in two stages — half before the campaign and half after achieving a 10K view target. The deal is created on DexCourt, and the first 2 ETH is placed in escrow. After the influencer delivers only one low-effort video and doesn't meet the target, the project raises a dispute. Judges review the case, confirm underperformance, and rule that only 1 ETH be released. The remaining amount returns to the project.",
+      "Example \n  Two founders agree on who builds and who markets. If one later claims more credit unfairly, judges review the agreement and proof.",
     exampleColor: "text-cyan-500/90",
-    whoBenefits:
-      "Startups, investors, influencers, marketing teams, or any group involved in performance-based deals.",
   },
   {
-    id: "dispute",
-    icon: <Scale className="size-16 text-cyan-400" />,
-    title: "Real-World Disputes",
+    id: "Reputation",
+    icon: <Star className="size-6 lg:size-16 text-cyan-400" />,
+    title: "Reputation Damage & False Accusations",
     description:
-      "DexCourt can also be used to settle real-world or hybrid disputes, such as services, investments, or physical goods deals that didn't happen digitally. While the platform can't force refunds, it can enforce accountability through reputation.",
+      "DexCourt gives people a fair way to respond to false accusations using evidence instead of online fights.",
     example:
-      "Example: A community member hires a local event organizer for a crypto meetup, paying $600 in cash. The organizer cancels last minute, refuses to refund, and disappears. The victim opens a DexCourt dispute with screenshots, chat logs, and witnesses. Judges review the case, vote unanimously that the organizer acted unfairly, and issue a public call-out urging a refund or apology. The organizer ignores it, and their Trust Score drops significantly, marking them as untrustworthy across future deals and appearing in the Ignored Rulings list.",
+      "Example: \n Someone calls you a scammer online. Both sides submit proof. Judges review and decide who is telling the truth.",
     exampleColor: "text-cyan-500/90",
-    whoBenefits:
-      "Crypto investors, small businesses, event partners, and community members handling real-world transactions or promises.",
+  },
+  {
+    id: "Real-world",
+    icon: <Wrench className="size-6 lg:size-16 text-cyan-400" />,
+    title: "Real-World Services & Cash Deals",
+    description:
+      "DexCourt allows offline and cash deals to still have accountability using photos, messages, and receipts.",
+    example:
+      "Example: \n You pay a repair person cash. The job is unfinished. You upload photos and chats. Judges review the evidence and rule.",
+    exampleColor: "text-cyan-500/90",
+  },
+  {
+    id: "local",
+    icon: <Users className="size-6 lg:size-16 text-cyan-400" />,
+    title: "Local & Neighbor Disputes",
+    description:
+      "DexCourt helps resolve local conflicts calmly with evidence and neutral decisions.",
+    example:
+      " Example: \n A neighbor damages your property. Both sides upload photos and messages. Judges review and decide based on facts.",
+    exampleColor: "text-cyan-500/90",
+  },
+  {
+    id: "venture",
+    icon: <Rocket className="size-6 lg:size-16 text-cyan-400" />,
+    title: "Venture Capital & Founders (Web2 & Web3)",
+    description:
+      "DexCourt helps investors and founders enforce investment terms, milestones, and accountability without expensive legal fights.",
+    example:
+      "Example: \n A startup agrees to build a product before getting full funding. If there's a dispute, judges review progress and evidence. Bad actors cannot quietly move to the next deal.",
+    exampleColor: "text-cyan-500/90",
+  },
+  {
+    id: "employers",
+    icon: <Building2 className="size-6 lg:size-16 text-cyan-400" />,
+    title: "Employers, Loan & Insurance Companies",
+    description:
+      "DexCourt acts as a reputation hub where organizations can review a person's history before trusting them.",
+    example:
+      "Example: \n An employer checks a candidate's DexCourt profile. They see past agreements, disputes, and whether rulings were respected. Loan and insurance companies can assess risk before approval.",
+    exampleColor: "text-cyan-500/90",
   },
 ];
 
@@ -81,7 +112,7 @@ const PlatformUseCases = () => {
   return (
     <section
       id="use-cases"
-      className="py-12 md:pt-16 lg:pt-24 text-white relative"
+      className="py-12 md:pt-16 lg:pt-24 text-white relative" // Added overflow-hidden
       ref={sectionRef}
     >
       {/* Header Section */}
@@ -108,116 +139,55 @@ const PlatformUseCases = () => {
         </p>
       </div>
 
-      {/* Mobile Layout (Below 1024px) */}
-      <div className="lg:hidden max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="space-y-6">
-          {features.map((feature, idx) => (
-            <div
-              key={feature.id}
-              data-aos="fade-up"
-              data-aos-delay={300 + idx * 100}
-              className="rounded-3xl bg-gradient-to-br from-cyan-900/20 to-black/50 backdrop-blur-xl p-6 border border-cyan-300/50"
-            >
-              <div className="flex flex-col items-center gap-6">
-                {/* Icon Section */}
-                <div className="p-4 rounded-2xl bg-cyan-500/10 border border-cyan-300/50 w-fit">
-                  {feature.icon}
-                </div>
-
-                {/* Text Content Section */}
-                <div className="w-full">
-                  <h3 className="text-xl font-bold text-white mb-3 text-center">
-                    {feature.title}
-                  </h3>
-
-                  <div className="space-y-4">
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      {feature.description}
-                    </p>
-
-                    {feature.example && (
-                      <div
-                        className={`text-sm leading-relaxed ${feature.exampleColor} font-medium bg-cyan-900/20 p-4 rounded-xl border border-cyan-700/30`}
-                      >
-                        {feature.example.split("\n").map((line, index) => (
-                          <p key={index} className={index > 0 ? "mt-2" : ""}>
-                            {line}
-                          </p>
-                        ))}
-                      </div>
-                    )}
-
-                    {/* Who Benefits Section */}
-                    <div className="p-4 bg-cyan-900/30 rounded-xl border border-cyan-700/30">
-                      <p className="text-sm font-semibold text-cyan-300 mb-2">
-                        Who Benefits:
-                      </p>
-                      <p className="text-sm text-cyan-200/90 leading-relaxed">
-                        {feature.whoBenefits}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
       {/* Desktop Stacked Layout (1024px and above) */}
-      <div className="hidden lg:block relative w-full max-w-5xl mx-auto px-4 sm:px-6">
-        <div className="relative h-[500vh]">
+      <div className="relative w-full max-w-5xl mx-auto px-4 sm:px-6">
+        {/* Increased height to accommodate 8 cards - ~125vh per card = 1000vh total */}
+        <div className="relative h-[1000vh]">
+          {" "}
+          {/* Changed from h-[500vh] */}
           {features.map((feature, idx) => {
             const imageRight = idx % 2 === 0;
-            const scaleEnd = 1 - idx * 0.02;
-            const scaleValue = scaleEnd;
 
             return (
               <div
                 key={feature.id}
                 className="sticky top-0 h-screen flex items-center justify-center"
               >
-                <div
-                  className="relative rounded-[2.5rem] p-[2px] bg-[#0f0f0f] border border-cyan-300/50 w-full max-w-4xl transition-transform duration-700 mx-4"
-                  style={{
-                    transform: `scale(${scaleValue})`,
-                  }}
-                >
-                  <div className="relative rounded-[2.3rem] bg-gradient-to-br from-cyan-900/20 to-black/50 backdrop-blur-xl p-8 lg:px-12 lg:py-8 overflow-hidden">
+                <div className="relative rounded-[1.5rem] p-[2px] bg-[#0f0f0f] border border-cyan-300/50 w-full max-w-4xl transition-transform duration-700 mx-4">
+                  <div className="relative rounded-[1.5rem] bg-gradient-to-br from-cyan-900/20 to-black/50 backdrop-blur-xl py-5 px-4 lg:px-12 lg:py-8 overflow-hidden h-[400px] lg:h-[300px]">
                     {/* Background Glow */}
                     <div
                       className={`absolute ${
                         imageRight ? "right-0" : "left-0"
                       } top-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/30 blur-[140px]`}
                     />
-
                     {/* Card Content - 30% Icon, 70% Text */}
                     <div
                       className={`relative flex flex-col ${
                         idx % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                      } items-center gap-12`}
+                      } items-center gap-2 md:gap-8 h-full`}
                     >
                       {/* Icon Section (30%) */}
                       <div className="w-full lg:w-3/10 flex lg:justify-center justify-start">
-                        <div className="p-6 rounded-2xl bg-cyan-500/10 border border-cyan-300/50 w-fit flex items-center justify-center">
+                        <div className="lg:p-6 p-2 rounded-2xl bg-cyan-500/10 border border-cyan-300/50 w-fit flex items-center justify-center">
                           {feature.icon}
                         </div>
                       </div>
 
                       {/* Text Content Section (70%) */}
-                      <div className="w-full lg:w-7/10">
-                        <h3 className="text-xl font-bold text-white mb-2">
+                      <div className="w-full lg:w-7/10 h-full flex flex-col">
+                        <h3 className="text-xl font-bold text-white mb-4">
                           {feature.title}
                         </h3>
 
-                        <div className="space-y-4">
-                          <p className="text-gray-300 text-sm leading-relaxed">
+                        <div className="space-y-4 flex-grow flex flex-col">
+                          <p className="text-gray-300 text-sm leading-relaxed flex-grow-0">
                             {feature.description}
                           </p>
 
                           {feature.example && (
                             <div
-                              className={`text-sm leading-relaxed ${feature.exampleColor} font-medium bg-cyan-900/20 p-4 rounded-xl border border-cyan-700/30`}
+                              className={`text-xs sm:text-sm leading-relaxed ${feature.exampleColor} font-medium bg-cyan-900/20 p-4 rounded-xl border border-cyan-700/30 flex-grow min-h-[100px] overflow-y-auto`}
                             >
                               {feature.example
                                 .split("\n")
@@ -231,16 +201,6 @@ const PlatformUseCases = () => {
                                 ))}
                             </div>
                           )}
-
-                          {/* Who Benefits Section */}
-                          <div className="p-4 bg-cyan-900/30 rounded-xl border border-cyan-700/30">
-                            <p className="text-sm font-semibold text-cyan-300 mb-1">
-                              Who Benefits:
-                            </p>
-                            <p className="text-sm text-cyan-200/90 leading-relaxed">
-                              {feature.whoBenefits}
-                            </p>
-                          </div>
                         </div>
                       </div>
                     </div>

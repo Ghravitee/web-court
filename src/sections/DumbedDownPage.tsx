@@ -25,7 +25,7 @@ import lock from "../assets/lock.webp";
 import jury from "../assets/jury.webp";
 import stalk from "../assets/stalk.webp";
 import { TiCancel } from "react-icons/ti";
-import logo from "../assets/DexCourt-logo.webp";
+import logo from "../assets/logo.webp";
 // Import AOS
 import AOS from "aos";
 import "aos/dist/aos.css";

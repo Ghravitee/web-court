@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import logo from "../assets/DexCourt-logo.webp";
+import logo from "../assets/logo.webp";
 
 interface NavbarProps {
   activeTab: "normal" | "dumbed-down";
