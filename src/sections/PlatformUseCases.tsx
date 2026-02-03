@@ -159,7 +159,7 @@ const PlatformUseCases = () => {
                     <div
                       className={`absolute ${
                         imageRight ? "right-0" : "left-0"
-                      } top-1/2 -translate-y-1/2 w-96 h-96 bg-cyan-500/30 blur-[140px]`}
+                      } top-1/2 -translate-y-1/2 w-96 h-96 `}
                     />
                     {/* Card Content - 30% Icon, 70% Text */}
                     <div
