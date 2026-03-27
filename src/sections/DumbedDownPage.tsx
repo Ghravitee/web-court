@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Shield,
   FileText,
@@ -20,17 +20,28 @@ import {
 } from "lucide-react";
 
 import draft from "../assets/draft.webp";
+import draftBlur from "../assets/draft-blur.jpg";
 import lawsuit from "../assets/lawsuit.webp";
+import lawsuitBlur from "../assets/lawsuit-blur.jpg";
 import lock from "../assets/lock.webp";
+import lockBlur from "../assets/lock-blur.jpg";
 import jury from "../assets/jury.webp";
+import juryBlur from "../assets/jury-blur.jpg";
 import stalk from "../assets/stalk.webp";
-import { TiCancel } from "react-icons/ti";
+import stalkBlur from "../assets/stalk-blur.jpg";
 import logo from "../assets/logo.webp";
 // Import AOS
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { TiCancel } from "react-icons/ti";
 
 const DumbedDownPage = () => {
+  const [loadedImages, setLoadedImages] = useState<Record<string, boolean>>({});
+
+  const handleImageLoad = (imageKey: string) => {
+    setLoadedImages((prev) => ({ ...prev, [imageKey]: true }));
+  };
+
   useEffect(() => {
     // Initialize AOS
     AOS.init({
@@ -40,6 +51,8 @@ const DumbedDownPage = () => {
       easing: "ease-in-out",
     });
   }, []);
+
+  const getImageLoaded = (key: string) => loadedImages[key] || false;
 
   return (
     <section className="relative pt-16 md:pt-28 pb-8 md:pb-20 px-4 sm:px-6 overflow-hidden">
@@ -139,11 +152,27 @@ const DumbedDownPage = () => {
                       </div>
                     </div>
                     <div className="absolute bottom-0 right-0 size-20 md:size-32 lg:size-40 flex items-center justify-center z-0 opacity-80">
-                      <img
-                        src={draft}
-                        alt="Draft documents"
-                        className="w-full h-full object-contain"
-                      />
+                      <div className="relative w-full h-full">
+                        <img
+                          src={draftBlur}
+                          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${
+                            getImageLoaded("draft")
+                              ? "opacity-0"
+                              : "opacity-100"
+                          }`}
+                          alt=""
+                        />
+                        <img
+                          src={draft}
+                          onLoad={() => handleImageLoad("draft")}
+                          className={`w-full h-full object-contain transition-opacity duration-700 ${
+                            getImageLoaded("draft")
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
+                          alt="Draft documents"
+                        />
+                      </div>
                     </div>
                   </div>
 
@@ -164,11 +193,23 @@ const DumbedDownPage = () => {
                       </div>
                     </div>
                     <div className="absolute bottom-0 right-0 size-20 md:size-32 lg:size-40 flex items-center justify-center z-0 opacity-80">
-                      <img
-                        src={lock}
-                        alt="Lock"
-                        className="w-full h-full object-contain"
-                      />
+                      <div className="relative w-full h-full">
+                        <img
+                          src={lockBlur}
+                          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${
+                            getImageLoaded("lock") ? "opacity-0" : "opacity-100"
+                          }`}
+                          alt=""
+                        />
+                        <img
+                          src={lock}
+                          onLoad={() => handleImageLoad("lock")}
+                          className={`w-full h-full object-contain transition-opacity duration-700 ${
+                            getImageLoaded("lock") ? "opacity-100" : "opacity-0"
+                          }`}
+                          alt="Lock"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -192,11 +233,27 @@ const DumbedDownPage = () => {
                       </div>
                     </div>
                     <div className="absolute bottom-0 right-0 size-20 md:size-32 lg:size-40 flex items-center justify-center z-0 opacity-80">
-                      <img
-                        src={lawsuit}
-                        alt="Lawsuit"
-                        className="w-full h-full object-contain"
-                      />
+                      <div className="relative w-full h-full">
+                        <img
+                          src={lawsuitBlur}
+                          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${
+                            getImageLoaded("lawsuit")
+                              ? "opacity-0"
+                              : "opacity-100"
+                          }`}
+                          alt=""
+                        />
+                        <img
+                          src={lawsuit}
+                          onLoad={() => handleImageLoad("lawsuit")}
+                          className={`w-full h-full object-contain transition-opacity duration-700 ${
+                            getImageLoaded("lawsuit")
+                              ? "opacity-100"
+                              : "opacity-0"
+                          }`}
+                          alt="Lawsuit"
+                        />
+                      </div>
                     </div>
                   </div>
 
@@ -217,11 +274,23 @@ const DumbedDownPage = () => {
                       </div>
                     </div>
                     <div className="absolute bottom-0 right-0 size-20 md:size-32 lg:size-40 flex items-center justify-center z-0 opacity-80">
-                      <img
-                        src={jury}
-                        alt="Jury"
-                        className="w-full h-full object-contain"
-                      />
+                      <div className="relative w-full h-full">
+                        <img
+                          src={juryBlur}
+                          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${
+                            getImageLoaded("jury") ? "opacity-0" : "opacity-100"
+                          }`}
+                          alt=""
+                        />
+                        <img
+                          src={jury}
+                          onLoad={() => handleImageLoad("jury")}
+                          className={`w-full h-full object-contain transition-opacity duration-700 ${
+                            getImageLoaded("jury") ? "opacity-100" : "opacity-0"
+                          }`}
+                          alt="Jury"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -243,11 +312,23 @@ const DumbedDownPage = () => {
                     </div>
                   </div>
                   <div className="absolute bottom-0 right-0 size-20 md:size-32 lg:size-40 flex items-center justify-center z-0 opacity-80">
-                    <img
-                      src={stalk}
-                      alt="Stalk"
-                      className="w-full h-full object-contain"
-                    />
+                    <div className="relative w-full h-full">
+                      <img
+                        src={stalkBlur}
+                        className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${
+                          getImageLoaded("stalk") ? "opacity-0" : "opacity-100"
+                        }`}
+                        alt=""
+                      />
+                      <img
+                        src={stalk}
+                        onLoad={() => handleImageLoad("stalk")}
+                        className={`w-full h-full object-contain transition-opacity duration-700 ${
+                          getImageLoaded("stalk") ? "opacity-100" : "opacity-0"
+                        }`}
+                        alt="Stalk"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
