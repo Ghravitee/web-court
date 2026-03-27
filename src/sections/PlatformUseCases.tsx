@@ -142,7 +142,7 @@ const PlatformUseCases = () => {
       {/* Desktop Stacked Layout (1024px and above) */}
       <div className="relative w-full max-w-5xl mx-auto px-4 sm:px-6">
         {/* Increased height to accommodate 8 cards - ~125vh per card = 1000vh total */}
-        <div className="relative h-[1000vh]">
+        <div className="relative h-[850vh]">
           {" "}
           {/* Changed from h-[500vh] */}
           {features.map((feature, idx) => {

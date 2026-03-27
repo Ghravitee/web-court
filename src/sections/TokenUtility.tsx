@@ -50,7 +50,7 @@ const TokenUtility = () => {
         <div className="text-center mb-12 sm:mb-16">
           <h2
             data-aos="fade-up"
-            data-aos-delay="200"
+            data-aos-delay="5"
             className="sec text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 text-black"
           >
             $LAW Token Utility

@@ -29,7 +29,7 @@ const Tokenomics = () => {
     { label: "Ticker", value: "$LAW" },
     { label: "Total Supply", value: "10,000,000" },
     { label: "Decimals", value: "18" },
-    { label: "Tax", value: "5% Buy / 5% Sell" },
+    { label: "Tax", value: "3% Buy / 3% Sell" }, // Changed from 5% to 3%
   ];
 
   const taxDistribution: TaxDistribution[] = [
@@ -40,12 +40,12 @@ const Tokenomics = () => {
     },
     {
       allocation: "Marketing",
-      percentage: "2%",
+      percentage: "1%",
       purpose: "Awareness, partnerships, and growth campaigns",
     },
     {
       allocation: "Revenue to Judges & Voters",
-      percentage: "2%",
+      percentage: "1%",
       purpose:
         "Distributed to active contributors who uphold the ecosystem's fairness",
     },
@@ -246,7 +246,7 @@ const Tokenomics = () => {
         data-aos-delay="100"
         className="text-3xl font-bold text-white mb-8 text-center"
       >
-        Tax Distribution <span className="text-cyan-400">(5% Total)</span>
+        Tax Distribution <span className="text-cyan-400">(3% Total)</span>
       </h3>
       <div className="grid md:grid-cols-3 gap-6">
         {taxDistribution.map((tax, index) => (

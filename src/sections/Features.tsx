@@ -81,11 +81,11 @@ const BentoFeatures = () => {
         <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
           Core <span className="text-cyan-400">Features</span>
         </h2>
-        <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 md:px-0">
+        {/* <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 md:px-0">
           DexCourt combines cutting-edge blockchain technology with fair
           governance to create a trustless ecosystem for secure agreements and
           dispute resolution.
-        </p>
+        </p> */}
       </div>
 
       {/* Parallax stack container */}

@@ -23,7 +23,7 @@ const RevenueAccordion = () => {
       icon: <DollarSign className="w-6 h-6 text-cyan-400" />,
       title: "Transaction Tax",
       description:
-        "Every $LAW transaction incurs a 5% tax distributed as follows: 1% Development, 2% Marketing, and 2% Rewards for Judges & Voters.",
+        "Every $LAW transaction incurs a 3% tax distributed as follows: 1% Development, 1% Marketing, and 1% Rewards for Judges & Voters.",
     },
     {
       icon: <Globe className="w-6 h-6 text-cyan-400" />,
