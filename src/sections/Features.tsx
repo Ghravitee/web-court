@@ -71,14 +71,14 @@ const BentoFeatures = () => {
   return (
     <section className="relative py-12 md:py-16 lg:pt-24 text-white">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center mb-12 md:mb-2">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-center">
         <div className="inline-flex items-center gap-2 md:gap-3 mb-4 px-4 md:px-6 py-2 md:py-3 rounded-full bg-cyan-500/10 border border-cyan-500/30">
           <FaShieldAlt className="text-cyan-400 text-base md:text-lg" />
           <span className="text-cyan-400 font-semibold text-xs md:text-sm uppercase tracking-wider">
             Platform Features
           </span>
         </div>
-        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
           Core <span className="text-cyan-400">Features</span>
         </h2>
         {/* <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed px-4 md:px-0">

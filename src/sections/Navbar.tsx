@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import logo from "../assets/logo.webp";
+import logoBlur from "../assets/logo-blur.jpg";
 
 interface NavbarProps {
   activeTab: "normal" | "dumbed-down";
@@ -11,6 +12,7 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [navBg, setNavBg] = useState(false);
   const [activeLink, setActiveLink] = useState("#home");
+  const [logoLoaded, setLogoLoaded] = useState(false);
 
   useEffect(() => {
     const handler = () => {
@@ -42,10 +44,27 @@ const Navbar = ({ activeTab, onTabChange }: NavbarProps) => {
         }`}
       >
         <nav className="flex justify-between items-center max-w-[1300px] mx-auto">
-          {/* Logo */}
-          <a href="/" className="">
-            <img src={logo} alt="" className="size-10 " />
-            {/* <span className="text-teal-300 font-bold text-lg">DexCourt</span> */}
+          {/* Logo with blur placeholder */}
+          <a href="/" className="relative w-10 h-10">
+            {/* Blur placeholder */}
+            <img
+              src={logoBlur}
+              className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-700 ${
+                logoLoaded ? "opacity-0" : "opacity-100"
+              }`}
+              alt=""
+            />
+            {/* Full image */}
+            <img
+              src={logo}
+              onLoad={() => setLogoLoaded(true)}
+              className={`w-full h-full object-contain transition-opacity duration-700 ${
+                logoLoaded ? "opacity-100" : "opacity-0"
+              }`}
+              alt="DexCourt Logo"
+              loading="eager"
+              fetchPriority="high"
+            />
           </a>
 
           {/* Desktop Nav */}
